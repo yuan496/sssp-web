@@ -31,13 +31,13 @@ body {
 	<c:if test="${page != null && page.numberOfElements > 0}">
 		<table class="data">
 			<tr>
-				<td class="head">lastName</td>
-				<td class="head">email</td>
-				<td class="head">birth</td>
-				<td class="head">createTime</td>
-				<td class="head">department</td>
-				<td class="head">&nbsp;</td>
-				<td class="head">&nbsp;</td>
+				<td class="head"><spring:message code="employee.lastName"></spring:message></td>
+				<td class="head"><spring:message code="employee.email"></spring:message></td>
+				<td class="head"><spring:message code="employee.birth"></spring:message></td>
+				<td class="head"><spring:message code="employee.createTime"></spring:message></td>
+				<td class="head"><spring:message code="employee.department"></spring:message></td>
+				<td class="head"><spring:message code="base.edit"></spring:message></td>
+				<td class="head"><spring:message code="base.delete"></spring:message></td>
 			</tr>
 			<c:forEach items="${page.content}" var="emp">
 				<tr>
