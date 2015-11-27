@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration scan="true" scanPeriod="30 seconds">
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<!-- encoder 默认配置为PatternLayoutEncoder -->
+		<encoder>
+			<pattern>%date [%thread] %-5level %logger{80} - %msg%n</pattern>
+		</encoder>
+	</appender>
+	<appender name="sssp_error"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>ERROR</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+		<File>${catalina.base}/logs/sssp_error.log</File>
+		<Encoding>UTF-8</Encoding>
+		<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+			<FileNamePattern>${catalina.base}/log/sssp_error.%i.log
+			</FileNamePattern>
+			<MinIndex>1</MinIndex>
+			<MaxIndex>10</MaxIndex>
+		</rollingPolicy>
+		<triggeringPolicy
+			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<MaxFileSize>5MB</MaxFileSize>
+		</triggeringPolicy>
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>%date [%thread] %-5level %logger{80} - %msg%n</Pattern>
+		</layout>
+	</appender>
+	<appender name="sssp_debug"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>DEBUG</level>
+		</filter>
+		<File>${catalina.base}/logs/sssp_debug.log</File>
+		<Encoding>UTF-8</Encoding>
+		<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+			<FileNamePattern>${catalina.base}/logs/sssp_debug.%i.log
+			</FileNamePattern>
+			<MinIndex>1</MinIndex>
+			<MaxIndex>20</MaxIndex>
+		</rollingPolicy>
+		<triggeringPolicy
+			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<MaxFileSize>5MB</MaxFileSize>
+		</triggeringPolicy>
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>%date [%thread] %-5level %logger{80} - %msg%n</Pattern>
+		</layout>
+	</appender>
+
+	<appender name="sssp_info"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>INFO</level>
+		</filter>
+		<File>${catalina.base}/logs/sssp_info.log</File>
+		<Encoding>UTF-8</Encoding>
+		<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+			<FileNamePattern>${catalina.base}/logs/sssp_info.%i.log
+			</FileNamePattern>
+			<MinIndex>1</MinIndex>
+			<MaxIndex>20</MaxIndex>
+		</rollingPolicy>
+		<triggeringPolicy
+			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<MaxFileSize>5MB</MaxFileSize>
+		</triggeringPolicy>
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>%date [%thread] %-5level %logger{80} - %msg%n</Pattern>
+		</layout>
+	</appender>
+
+	<appender name="sssp_warn"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>WARN</level>
+		</filter>
+		<File>${catalina.base}/logs/sssp_warn.log</File>
+		<Encoding>UTF-8</Encoding>
+		<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+			<FileNamePattern>${catalina.base}/logs/sssp_warn.%i.log
+			</FileNamePattern>
+			<MinIndex>1</MinIndex>
+			<MaxIndex>20</MaxIndex>
+		</rollingPolicy>
+		<triggeringPolicy
+			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<MaxFileSize>5MB</MaxFileSize>
+		</triggeringPolicy>
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>%date [%thread] %-5level %logger{80} - %msg%n</Pattern>
+		</layout>
+	</appender>
+
+	<logger name="com.fzb.sssp" level="INFO">
+		<appender-ref ref="sssp_error" />
+		<appender-ref ref="sssp_debug" />
+		<appender-ref ref="sssp_info" />
+		<appender-ref ref="sssp_warn" />
+	</logger>
+
+	<logger name="org.springframework" level="INFO">
+		<appender-ref ref="sssp_error" />
+		<appender-ref ref="sssp_debug" />
+		<appender-ref ref="sssp_info" />
+		<appender-ref ref="sssp_warn" />
+	</logger>
+
+	<logger name="org.hibernate" level="INFO">
+		<appender-ref ref="sssp_error" />
+		<appender-ref ref="sssp_debug" />
+		<appender-ref ref="sssp_info" />
+		<appender-ref ref="sssp_warn" />
+	</logger>
+
+	<logger name="org.hibernate.tool.hbm2ddl" level="INFO">
+		<appender-ref ref="sssp_error" />
+		<appender-ref ref="sssp_debug" />
+		<appender-ref ref="sssp_info" />
+		<appender-ref ref="sssp_warn" />
+	</logger>
+
+	<logger name="org.apache" level="INFO">
+		<appender-ref ref="sssp_error" />
+		<appender-ref ref="sssp_debug" />
+		<appender-ref ref="sssp_info" />
+		<appender-ref ref="sssp_warn" />
+	</logger>
+
+	<root level="ERROR">
+		<appender-ref ref="STDOUT" />
+	</root>
+</configuration>

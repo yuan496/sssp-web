@@ -1,6 +1,8 @@
 package com.fzb.sssp.service.impl;
 
 import java.util.Date;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -19,6 +21,8 @@ import com.fzb.sssp.service.EmployeeService;
 @Service("employeeService")
 @Transactional
 public class EmployeeServiceImpl implements EmployeeService {
+	
+	private static final Logger log = LoggerFactory.getLogger(EmployeeService.class);
 	
 	@Autowired
 	private EmployeeRepository employeeRepository;
@@ -53,6 +57,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	 */
 	@Override
 	public void save(Employee employee) {
+		log.info("save the employee is {}", employee.toString());
 		if(null != employee && null == employee.getId()) {
 			employee.setCreateTime(new Date());
 		}
@@ -72,6 +77,7 @@ public class EmployeeServiceImpl implements EmployeeService {
      */
     @Override
     public Employee get(Integer id) {
+    	log.info("get the employee by id is {}", id);
 	    return employeeRepository.findOne(id);
     }
     
@@ -87,6 +93,7 @@ public class EmployeeServiceImpl implements EmployeeService {
      */
     @Override
     public void delete(Integer id) {
+    	log.info("delete the employee by id is {}", id);
     	employeeRepository.delete(id);
     }
 }

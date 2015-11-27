@@ -1,6 +1,8 @@
 package com.fzb.sssp.service.impl;
 
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,6 +20,8 @@ import com.fzb.sssp.service.DepartmentService;
 @Transactional
 public class DepartmentServiceImpl implements DepartmentService {
 	
+	private static final Logger log = LoggerFactory.getLogger(DepartmentService.class);
+	
 	@Autowired
 	private DepartmentRepository departmentRepository;
 	
@@ -33,6 +37,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 	 */
 	@Override
 	public List<Department> getAll() {
+		log.info("findAll department ...");
 		return departmentRepository.getAll();
 	}
 }
