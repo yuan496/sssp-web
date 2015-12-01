@@ -1,5 +1,6 @@
 	package com.fzb.sssp.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -10,7 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import org.hibernate.validator.constraints.NotBlank;
+import javax.xml.bind.annotation.XmlRootElement;
 import org.springframework.format.annotation.DateTimeFormat;
 
 /**
@@ -21,8 +22,13 @@ import org.springframework.format.annotation.DateTimeFormat;
  */
 @Table(name = "SSSP_EMPLOYEE")
 @Entity
-public class Employee {
+@XmlRootElement
+public class Employee implements Serializable {
 	
+	/** 
+    * TODO(用一句话描述这个变量表示什么) 
+    */ 
+    private static final long serialVersionUID = 3146358340155292516L;
 	private Integer id;
 	private String lastName;
 	private String email;

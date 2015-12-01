@@ -47,8 +47,8 @@ body {
 					<td><fmt:formatDate value="${emp.birth}" pattern="yyyy-MM-dd"/></td>
 					<td><fmt:formatDate value="${emp.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 					<td>${emp.department.departmentName}</td>
-					<td><a href="${pageContext.request.contextPath }/emp/emp/${emp.id}">edit</a></td>
-					<td><a href="${pageContext.request.contextPath }/emp/delete?id=${emp.id}">delete</a></td>
+					<td><a href="${pageContext.request.contextPath }/web/emp/emp/${emp.id}">edit</a></td>
+					<td><a href="${pageContext.request.contextPath }/web/emp/delete?id=${emp.id}">delete</a></td>
 				</tr>
 			</c:forEach>
 			<tr>

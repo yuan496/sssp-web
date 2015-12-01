@@ -19,7 +19,7 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
 		<context:exclude-filter type="annotation"
 			expression="org.springframework.web.bind.annotation.ControllerAdvice" />
 	</context:component-scan>
-
+	
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 		<!-- 指定连接数据库的驱动 -->
 		<property name="driverClass" value="${jdbc.driverClassName}" />
@@ -91,5 +91,7 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
 		repository-impl-postfix="Impl" entity-manager-factory-ref="entityManagerFactory"
 		transaction-manager-ref="transactionManager">
 	</jpa:repositories>
+	
+	<import resource="cxf-server.xml"/>
 
 </beans>

@@ -1,5 +1,13 @@
 package com.fzb.sssp.service;
 
+import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 import org.springframework.data.domain.Page;
 import com.fzb.sssp.domain.Employee;
 
@@ -9,13 +17,24 @@ import com.fzb.sssp.domain.Employee;
  * @since 版本号，从什么版本开始
  * @createDate 2015年10月6日 下午12:30:50
  */
+@Path("/employeeService")
+@Produces(MediaType.APPLICATION_JSON)
 public interface EmployeeService {
 	
-	public Page<Employee> getPage(int pageNo, int pageSize);
+	@GET
+	@Path("/getPage/{pageNo}/{pageSize}")
+	public Page<Employee> getPage(@PathParam("pageNo") int pageNo, @PathParam("pageSize") int pageSize);
 	
+	@PUT
+	@Path("/save")
+	@Consumes(MediaType.APPLICATION_JSON)
 	public void save(Employee employee);
 	
-	public Employee get(Integer id);
+	@GET
+	@Path("/get/{id}")
+	public Employee get(@PathParam("id") Integer id);
 	
-	public void delete(Integer id);
+	@DELETE
+	@Path("/delete/{id}")
+	public void delete(@PathParam("id") Integer id);
 }

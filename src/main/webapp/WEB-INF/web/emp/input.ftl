@@ -6,9 +6,9 @@
 
 <h2>Employee Manager</h2>
 
-<#assign url="${request.contextPath}/emp/emp" />
+<#assign url="${request.contextPath}/web/emp/emp" />
 <#if employee.id??>
-	<#assign url="${pageContext.request.contextPath }/emp/emp/{employee.id}" />
+	<#assign url="${pageContext.request.contextPath }/web/emp/emp/{employee.id}" />
 </#if>
 
 <form method="post" action="${url}">

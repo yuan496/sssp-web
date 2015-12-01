@@ -1,10 +1,12 @@
 package com.fzb.sssp.domain;
 
+import java.io.Serializable;
 import javax.persistence.Cacheable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * {描述: 功能，使用对象，使用方法等}
@@ -15,8 +17,13 @@ import javax.persistence.Table;
 @Cacheable
 @Table(name="SSSP_DEPARTMENT")
 @Entity
-public class Department {
+@XmlRootElement
+public class Department implements Serializable {
 	
+	/** 
+    * TODO(用一句话描述这个变量表示什么) 
+    */ 
+    private static final long serialVersionUID = -1802075439320846093L;
 	private Integer id;
 	private String departmentName;
 	

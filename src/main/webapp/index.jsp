@@ -2,7 +2,7 @@
 <html>
 <body>
 <h2>Hello World!</h2>
-<a href="emp/list">list</a>
-<a href="emp/emp">add</a>
+<a href="web/emp/list">list</a>
+<a href="web/emp/emp">add</a>
 </body>
 </html>
