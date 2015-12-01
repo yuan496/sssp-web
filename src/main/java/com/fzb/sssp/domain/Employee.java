@@ -13,6 +13,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 import org.springframework.format.annotation.DateTimeFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * {描述: 功能，使用对象，使用方法等}
@@ -82,7 +83,7 @@ public class Employee implements Serializable {
 	}
 	
 	@JoinColumn(name = "DEPARTMENT_ID")
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	public Department getDepartment() {
 		return department;
 	}

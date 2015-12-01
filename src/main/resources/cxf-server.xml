@@ -22,18 +22,18 @@
 		<jaxrs:serviceBeans>
 			<ref bean="employeeService" />
 		</jaxrs:serviceBeans>
-		<jaxrs:providers>
-			<bean class="org.apache.cxf.jaxrs.provider.json.JSONProvider">
-				<property name="dropRootElement" value="true" />
-				<property name="supportUnwrapped" value="true" />
-			</bean>
-		</jaxrs:providers>
+		<jaxrs:extensionMappings>
+            <entry key="json" value="application/json"/>
+        </jaxrs:extensionMappings>
 		<jaxrs:inInterceptors>
 			<bean class="org.apache.cxf.interceptor.LoggingInInterceptor"></bean>
 		</jaxrs:inInterceptors>
 		<jaxrs:outInterceptors>
 			<bean class="org.apache.cxf.interceptor.LoggingOutInterceptor"></bean>
 		</jaxrs:outInterceptors>
+		<jaxrs:providers>
+			<bean class="com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider" />
+		</jaxrs:providers>
 	</jaxrs:server>
 
 </beans>

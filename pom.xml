@@ -38,6 +38,7 @@
 		<joda-time.version>2.9.1</joda-time.version>
 		<cglib.version>3.2.0</cglib.version>
 		<cxf_version>3.1.4</cxf_version>
+		<jackson.version>2.6.3</jackson.version>
 		<javax-ws-rs-api.version>2.0.1</javax-ws-rs-api.version>
 		<!-- for basic build property -->
 		<java_source_version>1.7</java_source_version>
@@ -269,8 +270,13 @@
 			</dependency>
 			<dependency>
 				<groupId>org.apache.cxf</groupId>
-				<artifactId>cxf-rt-rs-extension-providers</artifactId>
+				<artifactId>cxf-rt-rs-service-description</artifactId>
 				<version>${cxf_version}</version>
+			</dependency>
+			<dependency>
+			    <groupId>com.fasterxml.jackson.jaxrs</groupId>
+			    <artifactId>jackson-jaxrs-json-provider</artifactId>
+			    <version>${jackson.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>javax.ws.rs</groupId>
@@ -438,12 +444,11 @@
 		</dependency>
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
-			<artifactId>cxf-rt-rs-extension-providers</artifactId>
+			<artifactId>cxf-rt-rs-service-description</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.codehaus.jettison</groupId>
-			<artifactId>jettison</artifactId>
-			<version>1.3.7</version>
+		    <groupId>com.fasterxml.jackson.jaxrs</groupId>
+		    <artifactId>jackson-jaxrs-json-provider</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>javax.ws.rs</groupId>
