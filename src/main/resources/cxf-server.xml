@@ -24,6 +24,7 @@
 		</jaxrs:serviceBeans>
 		<jaxrs:extensionMappings>
             <entry key="json" value="application/json"/>
+            <entry key="xml" value="application/xml"/>
         </jaxrs:extensionMappings>
 		<jaxrs:inInterceptors>
 			<bean class="org.apache.cxf.interceptor.LoggingInInterceptor"></bean>

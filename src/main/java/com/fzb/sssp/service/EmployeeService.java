@@ -6,7 +6,6 @@ import javax.ws.rs.GET;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import org.springframework.data.domain.Page;
 import com.fzb.sssp.domain.Employee;
@@ -18,7 +17,6 @@ import com.fzb.sssp.domain.Employee;
  * @createDate 2015年10月6日 下午12:30:50
  */
 @Path("/employeeService")
-@Produces(MediaType.APPLICATION_JSON)
 public interface EmployeeService {
 	
 	@GET
