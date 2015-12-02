@@ -1,4 +1,4 @@
-	package com.fzb.sssp.domain;
+package com.fzb.sssp.domain;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -13,7 +13,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 import org.springframework.format.annotation.DateTimeFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * {描述: 功能，使用对象，使用方法等}
