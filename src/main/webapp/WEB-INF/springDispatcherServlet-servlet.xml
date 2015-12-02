@@ -140,4 +140,32 @@
 		<property name="cacheSeconds" value="60" />
 	</bean>
 
+	<!-- 异常拦截处理 -->
+	<bean id="exceptionResolver"
+		class="com.fzb.sssp.web.support.CustomExceptionHandlerExceptionResolver">
+		<property name="defaultErrorView" value="/web/error.jsp" /><!--错误页面 -->
+		<!--标有@ResponseBody被此messageConverters输出 -->
+		<property name="messageConverters">
+			<list>
+				<bean
+					class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
+					<property name="supportedMediaTypes">
+						<list>
+							<value>application/json;charset=UTF-8</value>
+							<value>application/javascript;charset=UTF-8</value>
+							<value>text/json;charset=UTF-8</value>
+							<value>text/javascript;charset=UTF-8</value>
+						</list>
+					</property>
+					<property name="features">
+						<array>
+							<value>WriteMapNullValue</value>
+							<value>QuoteFieldNames</value>
+						</array>
+					</property>
+				</bean>
+			</list>
+		</property>
+	</bean>
+
 </beans>

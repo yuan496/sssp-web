@@ -4,46 +4,38 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.apache.commons.collections.CollectionUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.servlet.mvc.multiaction.NoSuchRequestHandlingMethodException;
 
 /**
- * {描述: 功能，使用对象，使用方法等}
+ * spring mvc controller的基类
  * @author fangzhibin
  * @since 版本号，从什么版本开始
- * @createDate 2015年11月30日 上午9:53:34
+ * @createDate 2015年12月2日 下午3:19:25
  */
+@Controller
 public class BaseController {
 	
+	private static final Logger log = LoggerFactory.getLogger(BaseController.class);
 	/**
 	 * 服务名称
 	 */
-	private HttpSession httpSession;
-	private static final String NOT_FOUND = "404";
-	private static final String INTERNAL_SERVER_ERROR = "500";
-	
-	@ExceptionHandler({Exception.class})
-	public String exception(Exception e, HttpServletRequest request, HttpServletResponse response) {
-		if (e.getClass() == NoSuchRequestHandlingMethodException.class) {
-			return NOT_FOUND;
-		} else {
-			return INTERNAL_SERVER_ERROR;
-		}
-	}
+	private String serverName = "";
+	private String ctx = "";
+	private HttpSession session;
 	
 	/**
 	 * 根据spring的validate验证返回结果，转换成map信息返回给页面,页面获取方式${errors?.属性名}
-	 * @author fangzhibin 2015年3月26日 下午2:40:06
-	 * @param result
-	 *        spring的validate验证结果
+	 * @author shanguoming 2015年3月26日 下午2:40:06
+	 * @param result spring的validate验证结果
 	 * @param model
-	 * @modify: {原因} by fangzhibin 2014年8月26日 下午2:40:06
+	 * @modify: {原因} by shanguoming 2014年8月26日 下午2:40:06
 	 */
 	protected void validate(BindingResult result, ModelMap model) {
 		if (result == null || model == null) {
@@ -59,11 +51,55 @@ public class BaseController {
 		}
 	}
 	
-	public HttpSession getHttpSession() {
-		return httpSession;
+	/**
+	 * 获取客户端ip地址
+	 * @author shanguoming 2015年5月20日 上午11:48:12
+	 * @param request
+	 * @return
+	 * @modify: {原因} by shanguoming 2015年5月20日 上午11:48:12
+	 */
+	protected String getRemoteAddress(HttpServletRequest request) {
+		String ip = request.getHeader("X-Real-IP");
+		if (ip == null || ip.length() == 0 || ip.equalsIgnoreCase("unknown")) {
+			ip = request.getHeader("X-Forwarded-For");
+		}
+		if (ip == null || ip.length() == 0 || ip.equalsIgnoreCase("unknown")) {
+			ip = request.getHeader("Proxy-Client-IP");
+		}
+		if (ip == null || ip.length() == 0 || ip.equalsIgnoreCase("unknown")) {
+			ip = request.getHeader("WL-Proxy-Client-IP");
+		}
+		if (ip == null || ip.length() == 0 || ip.equalsIgnoreCase("unknown")) {
+			ip = request.getRemoteAddr();
+		}
+		return ip;
 	}
 	
-	public void setHttpSession(HttpSession httpSession) {
-		this.httpSession = httpSession;
+	public String getServerName() {
+		return serverName;
+	}
+	
+	public void setServerName(String serverName) {
+		this.serverName = serverName;
+	}
+	
+	public HttpSession getSession() {
+		return session;
+	}
+	
+	public void setSession(HttpSession session) {
+		this.session = session;
+	}
+	
+	public String getCtx() {
+		return ctx;
+	}
+	
+	public void setCtx(String ctx) {
+		this.ctx = ctx;
+	}
+	
+	public String redirect(String path) {
+		return "redirect:" + path;
 	}
 }
