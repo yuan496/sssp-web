@@ -1,4 +1,4 @@
-package com.fzb.sssp.web.listener;
+package com.fzb.sssp.web.log.listener;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
