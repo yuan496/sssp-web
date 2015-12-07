@@ -92,6 +92,8 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
 		transaction-manager-ref="transactionManager">
 	</jpa:repositories>
 	
+	<bean id="appContext" class="com.fzb.sssp.commons.AppContext" />
+	
 	<import resource="cxf-server.xml"/>
 
 </beans>

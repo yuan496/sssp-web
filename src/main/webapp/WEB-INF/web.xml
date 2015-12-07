@@ -72,5 +72,16 @@
         <servlet-name>CXFServlet</servlet-name>
         <url-pattern>/services/*</url-pattern>
     </servlet-mapping>
+    
+    <session-config>
+		<session-timeout>30</session-timeout>
+	</session-config>
+    <error-page>
+		<error-code>404</error-code>
+		<location>/web/404.jsp</location>
+	</error-page>
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
 
 </web-app>
