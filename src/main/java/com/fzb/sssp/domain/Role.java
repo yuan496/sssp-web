@@ -103,6 +103,7 @@ public class Role implements Serializable {
 		this.createTime = createTime;
 	}
 	
+	@Temporal(TemporalType.TIMESTAMP)
 	public Date getUpdateTime() {
 		return updateTime;
 	}
@@ -111,6 +112,7 @@ public class Role implements Serializable {
 		this.updateTime = updateTime;
 	}
 	
+	@Temporal(TemporalType.TIMESTAMP)
 	public Date getDeleteTime() {
 		return deleteTime;
 	}
