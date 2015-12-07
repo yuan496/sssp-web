@@ -12,9 +12,9 @@
 
 	<h2>Role Manager</h2>
 	
-	<c:set value="${pageContext.request.contextPath }/web/role/role" var="url"></c:set>
+	<c:set value="${pageContext.request.contextPath }/role/role" var="url"></c:set>
 	<c:if test="${role.id != null }">
-		<c:set value="${pageContext.request.contextPath }/web/role/role/{role.id}" var="url"></c:set>
+		<c:set value="${pageContext.request.contextPath }/role/role/{role.id}" var="url"></c:set>
 	</c:if>
 
 	<form:form method="post"

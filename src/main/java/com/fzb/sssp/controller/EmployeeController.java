@@ -76,12 +76,12 @@ public class EmployeeController {
 	@RequestMapping(value = "/emp/{id}", method = RequestMethod.PUT)
 	public String update(Employee employee) {
 		employeeService.save(employee);
-		return "redirect:/web/emp/list";
+		return "redirect:/emp/list";
 	}
 	
 	@RequestMapping(value = "/delete")
 	public String delete(@RequestParam(value = "id") Integer id) {
 		employeeService.delete(id);
-		return "redirect:/web/emp/list";
+		return "redirect:/emp/list";
 	}
 }

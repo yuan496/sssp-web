@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.fzb.sssp.domain.Menu;
 import com.fzb.sssp.service.MenuService;
 
-/**
- * {描述: 功能，使用对象，使用方法等}
+
+/** {描述: 功能，使用对象，使用方法等}
  * @author fangzhibin
  * @since 版本号，从什么版本开始
  * @createDate 2015年12月7日 下午7:16:49
@@ -70,12 +70,12 @@ public class MenuController {
 	@RequestMapping(value = "/menu/{id}", method = RequestMethod.PUT)
 	public String update(Menu menu) {
 		menuService.save(menu);
-		return "redirect:/web/menu/list";
+		return "redirect:/menu/list";
 	}
 	
 	@RequestMapping(value = "/delete")
 	public String delete(@RequestParam(value = "id") Integer id) {
 		menuService.delete(id);
-		return "redirect:/web/menu/list";
+		return "redirect:/menu/list";
 	}
 }

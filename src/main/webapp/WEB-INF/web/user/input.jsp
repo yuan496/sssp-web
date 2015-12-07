@@ -12,9 +12,9 @@
 
 	<h2>User Manager</h2>
 	
-	<c:set value="${pageContext.request.contextPath }/web/user/user" var="url"></c:set>
+	<c:set value="${pageContext.request.contextPath }/user/user" var="url"></c:set>
 	<c:if test="${user.id != null }">
-		<c:set value="${pageContext.request.contextPath }/web/user/user/{user.id}" var="url"></c:set>
+		<c:set value="${pageContext.request.contextPath }/user/user/{user.id}" var="url"></c:set>
 	</c:if>
 
 	<form:form method="post"

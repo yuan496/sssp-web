@@ -70,12 +70,12 @@ public class DepartmentController {
 	@RequestMapping(value = "/dept/{id}", method = RequestMethod.PUT)
 	public String update(Department department) {
 		departmentService.save(department);
-		return "redirect:/web/dept/list";
+		return "redirect:/dept/list";
 	}
 	
 	@RequestMapping(value = "/delete")
 	public String delete(@RequestParam(value = "id") Integer id) {
 		departmentService.delete(id);
-		return "redirect:/web/dept/list";
+		return "redirect:/dept/list";
 	}
 }

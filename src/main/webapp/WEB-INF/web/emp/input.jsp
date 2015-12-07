@@ -12,9 +12,9 @@
 
 	<h2>Employee Manager</h2>
 	
-	<c:set value="${pageContext.request.contextPath }/web/emp/emp" var="url"></c:set>
+	<c:set value="${pageContext.request.contextPath }/emp/emp" var="url"></c:set>
 	<c:if test="${employee.id != null }">
-		<c:set value="${pageContext.request.contextPath }/web/emp/emp/{employee.id}" var="url"></c:set>
+		<c:set value="${pageContext.request.contextPath }/emp/emp/{employee.id}" var="url"></c:set>
 	</c:if>
 
 	<form:form method="post"

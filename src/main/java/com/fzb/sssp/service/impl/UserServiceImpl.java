@@ -18,7 +18,7 @@ import com.fzb.sssp.service.UserService;
  * @since 版本号，从什么版本开始
  * @createDate 2015年10月6日 下午6:54:48
  */
-@Service("departmentService")
+@Service("userService")
 @Transactional
 public class UserServiceImpl implements UserService {
 	

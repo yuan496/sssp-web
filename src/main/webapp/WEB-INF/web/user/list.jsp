@@ -51,8 +51,8 @@ body {
 					<td>${user.address}</td>
 					<td><fmt:formatDate value="${user.birth}" pattern="yyyy-MM-dd"/></td>
 					<td><fmt:formatDate value="${user.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
-					<td><a href="${pageContext.request.contextPath }/web/user/user/${user.id}">edit</a></td>
-					<td><a href="${pageContext.request.contextPath }/web/user/delete?id=${user.id}">delete</a></td>
+					<td><a href="${pageContext.request.contextPath }/user/user/${user.id}">edit</a></td>
+					<td><a href="${pageContext.request.contextPath }/user/delete?id=${user.id}">delete</a></td>
 				</tr>
 			</c:forEach>
 			<tr>

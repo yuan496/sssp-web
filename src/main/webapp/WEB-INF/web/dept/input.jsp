@@ -12,14 +12,14 @@
 
 	<h2>Department Manager</h2>
 	
-	<c:set value="${pageContext.request.contextPath }/web/dept/dept" var="url"></c:set>
+	<c:set value="${pageContext.request.contextPath }/dept/dept" var="url"></c:set>
 	<c:if test="${dept.id != null }">
-		<c:set value="${pageContext.request.contextPath }/web/dept/dept/{dept.id}" var="url"></c:set>
+		<c:set value="${pageContext.request.contextPath }/dept/dept/{dept.id}" var="url"></c:set>
 	</c:if>
 
 	<form:form method="post"
 		action="${url}"
-		commandName="dept">
+		commandName="department">
 
 		<table>
 			<form:hidden path="id" />

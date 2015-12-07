@@ -12,9 +12,9 @@
 
 	<h2>Menu Manager</h2>
 	
-	<c:set value="${pageContext.request.contextPath }/web/menu/menu" var="url"></c:set>
+	<c:set value="${pageContext.request.contextPath }/menu/menu" var="url"></c:set>
 	<c:if test="${menu.id != null }">
-		<c:set value="${pageContext.request.contextPath }/web/menu/menu/{menu.id}" var="url"></c:set>
+		<c:set value="${pageContext.request.contextPath }/menu/menu/{menu.id}" var="url"></c:set>
 	</c:if>
 
 	<form:form method="post"

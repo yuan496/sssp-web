@@ -38,8 +38,8 @@
 		<td>${(emp.birth?string("yyyy-MM-dd"))!''}</td>
 		<td>${(emp.createTime?string("yyyy-MM-dd HH:mm:ss"))!''}</td>
 		<td>${emp.department.departmentName}</td>
-		<td><a href="${request.contextPath}/web/emp/emp/${emp.id}">edit</a></td>
-		<td><a href="${request.contextPath}/web/emp/delete?id=${emp.id}">delete</a></td>
+		<td><a href="${request.contextPath}/emp/emp/${emp.id}">edit</a></td>
+		<td><a href="${request.contextPath}/emp/delete?id=${emp.id}">delete</a></td>
 	</tr>
 </#list>
 	<tr>

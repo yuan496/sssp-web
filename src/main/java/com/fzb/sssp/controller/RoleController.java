@@ -70,12 +70,12 @@ public class RoleController {
 	@RequestMapping(value = "/role/{id}", method = RequestMethod.PUT)
 	public String update(Role role) {
 		roleService.save(role);
-		return "redirect:/web/role/list";
+		return "redirect:/role/list";
 	}
 	
 	@RequestMapping(value = "/delete")
 	public String delete(@RequestParam(value = "id") Integer id) {
 		roleService.delete(id);
-		return "redirect:/web/role/list";
+		return "redirect:/role/list";
 	}
 }

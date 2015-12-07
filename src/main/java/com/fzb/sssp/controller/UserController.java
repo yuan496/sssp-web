@@ -70,12 +70,12 @@ public class UserController {
 	@RequestMapping(value = "/user/{id}", method = RequestMethod.PUT)
 	public String update(User user) {
 		userService.save(user);
-		return "redirect:/web/user/list";
+		return "redirect:/user/list";
 	}
 	
 	@RequestMapping(value = "/delete")
 	public String delete(@RequestParam(value = "id") Integer id) {
 		userService.delete(id);
-		return "redirect:/web/user/list";
+		return "redirect:/user/list";
 	}
 }

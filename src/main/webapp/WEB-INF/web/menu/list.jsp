@@ -45,8 +45,8 @@ body {
 					<td>${menu.name}</td>
 					<td>${menu.url}</td>
 					<td><fmt:formatDate value="${menu.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
-					<td><a href="${pageContext.request.contextPath }/web/menu/menu/${menu.id}">edit</a></td>
-					<td><a href="${pageContext.request.contextPath }/web/menu/delete?id=${menu.id}">delete</a></td>
+					<td><a href="${pageContext.request.contextPath }/menu/menu/${menu.id}">edit</a></td>
+					<td><a href="${pageContext.request.contextPath }/menu/delete?id=${menu.id}">delete</a></td>
 				</tr>
 			</c:forEach>
 			<tr>
