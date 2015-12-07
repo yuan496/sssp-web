@@ -28,10 +28,10 @@ public class Role implements Serializable {
 	private Integer id;
 	private String code;
 	private String name;
-	private String addPm;
-	private String modifyPm;
-	private String deletePm;
-	private String queryPm;
+	private Boolean addPm;
+	private Boolean modifyPm;
+	private Boolean deletePm;
+	private Boolean queryPm;
 	private Date createTime;
 	private Date updateTime;
 	private Date deleteTime;
@@ -62,35 +62,35 @@ public class Role implements Serializable {
 		this.name = name;
 	}
 	
-	public String getAddPm() {
+	public Boolean getAddPm() {
 		return addPm;
 	}
 	
-	public void setAddPm(String addPm) {
+	public void setAddPm(Boolean addPm) {
 		this.addPm = addPm;
 	}
 	
-	public String getModifyPm() {
+	public Boolean getModifyPm() {
 		return modifyPm;
 	}
 	
-	public void setModifyPm(String modifyPm) {
+	public void setModifyPm(Boolean modifyPm) {
 		this.modifyPm = modifyPm;
 	}
 	
-	public String getDeletePm() {
+	public Boolean getDeletePm() {
 		return deletePm;
 	}
 	
-	public void setDeletePm(String deletePm) {
+	public void setDeletePm(Boolean deletePm) {
 		this.deletePm = deletePm;
 	}
 	
-	public String getQueryPm() {
+	public Boolean getQueryPm() {
 		return queryPm;
 	}
 	
-	public void setQueryPm(String queryPm) {
+	public void setQueryPm(Boolean queryPm) {
 		this.queryPm = queryPm;
 	}
 	

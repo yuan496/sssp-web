@@ -1,11 +1,14 @@
 package com.fzb.sssp.domain;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Cacheable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -15,17 +18,21 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @createDate 2015年10月6日 下午12:06:53
  */
 @Cacheable
-@Table(name="SSSP_DEPARTMENT")
+@Table(name = "SSSP_DEPARTMENT")
 @Entity
 @XmlRootElement
 public class Department implements Serializable {
 	
-	/** 
-    * TODO(用一句话描述这个变量表示什么) 
-    */ 
-    private static final long serialVersionUID = -1802075439320846093L;
+	/**
+	 * TODO(用一句话描述这个变量表示什么)
+	 */
+	private static final long serialVersionUID = -1802075439320846093L;
 	private Integer id;
-	private String departmentName;
+	private String code;
+	private String name;
+	private Date createTime;
+	private Date updateTime;
+	private Date deleteTime;
 	
 	@GeneratedValue
 	@Id
@@ -37,26 +44,46 @@ public class Department implements Serializable {
 		this.id = id;
 	}
 	
-	public String getDepartmentName() {
-		return departmentName;
+	public String getCode() {
+		return code;
 	}
 	
-	public void setDepartmentName(String departmentName) {
-		this.departmentName = departmentName;
+	public void setCode(String code) {
+		this.code = code;
 	}
 	
-	/**
-	 * {简述，保留点号}.
-	 * <p>
-	 * {详述}
-	 * <p>
-	 * <code>{样例代码， 小于号大于号转义&lt; &gt;}</code>
-	 * @author fangzhibin 2015年10月6日 下午12:09:07
-	 * @return
-	 * @modify {上次修改原因} by fangzhibin 2015年10月6日 下午12:09:07
-	 */
-	@Override
-	public String toString() {
-		return "Department [id=" + id + ", departmentName=" + departmentName + "]";
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	public Date getCreateTime() {
+		return createTime;
+	}
+	
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	public Date getUpdateTime() {
+		return updateTime;
+	}
+	
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
+	}
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	public Date getDeleteTime() {
+		return deleteTime;
+	}
+	
+	public void setDeleteTime(Date deleteTime) {
+		this.deleteTime = deleteTime;
 	}
 }

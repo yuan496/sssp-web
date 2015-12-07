@@ -22,7 +22,7 @@ import com.fzb.sssp.service.EmployeeService;
 @Transactional
 public class EmployeeServiceImpl implements EmployeeService {
 	
-	private static final Logger log = LoggerFactory.getLogger(EmployeeService.class);
+	private static final Logger log = LoggerFactory.getLogger(EmployeeServiceImpl.class);
 	
 	@Autowired
 	private EmployeeRepository employeeRepository;
