@@ -1,4 +1,4 @@
-package com.fzb.sssp.commons;
+package com.fzb.sssp.web.interceptors;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+import com.fzb.sssp.commons.BaseController;
 
 /**
  * 基础页面拦截器
