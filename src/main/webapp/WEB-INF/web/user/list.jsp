@@ -38,7 +38,7 @@ body {
 				<td class="head"><spring:message code="user.mobile"></spring:message></td>
 				<td class="head"><spring:message code="user.address"></spring:message></td>
 				<td class="head"><spring:message code="user.birth"></spring:message></td>
-				<td class="head"><spring:message code="user.createTime"></spring:message></td>
+				<td class="head"><spring:message code="base.createTime"></spring:message></td>
 				<td class="head"><spring:message code="base.edit"></spring:message></td>
 				<td class="head"><spring:message code="base.delete"></spring:message></td>
 			</tr>

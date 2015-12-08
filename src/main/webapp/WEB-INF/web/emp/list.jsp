@@ -35,7 +35,7 @@ body {
 				<td class="head"><spring:message code="employee.lastName"></spring:message></td>
 				<td class="head"><spring:message code="employee.email"></spring:message></td>
 				<td class="head"><spring:message code="employee.birth"></spring:message></td>
-				<td class="head"><spring:message code="employee.createTime"></spring:message></td>
+				<td class="head"><spring:message code="base.createTime"></spring:message></td>
 				<td class="head"><spring:message code="employee.department"></spring:message></td>
 				<td class="head"><spring:message code="base.edit"></spring:message></td>
 				<td class="head"><spring:message code="base.delete"></spring:message></td>

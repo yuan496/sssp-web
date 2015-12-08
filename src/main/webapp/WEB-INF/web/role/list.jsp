@@ -34,7 +34,7 @@ body {
 			<tr>
 				<td class="head"><spring:message code="role.code"></spring:message></td>
 				<td class="head"><spring:message code="role.name"></spring:message></td>
-				<td class="head"><spring:message code="role.createTime"></spring:message></td>
+				<td class="head"><spring:message code="base.createTime"></spring:message></td>
 				<td class="head"><spring:message code="base.edit"></spring:message></td>
 				<td class="head"><spring:message code="base.delete"></spring:message></td>
 			</tr>
