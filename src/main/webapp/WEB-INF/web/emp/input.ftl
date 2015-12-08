@@ -35,7 +35,7 @@
 		<td>
 			<select name="department.id">
 				<#list departments as department>
-				<option value="${department.id}" <#if employee.department.id = department.id>selected="true"</#if>>${department.departmentName}</option>
+				<option value="${department.id}" <#if employee.department.id = department.id>selected="true"</#if>>${department.name}</option>
 				</#list>
 			</select>
 		</td> 

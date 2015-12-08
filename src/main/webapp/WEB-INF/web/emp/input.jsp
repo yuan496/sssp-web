@@ -41,7 +41,7 @@
 			<tr>
 				<td><form:label path="department">department</form:label></td>
 				<td><form:select path="department.id" items="${departments }"
-						itemLabel="departmentName" itemValue="id"></form:select></td>
+						itemLabel="name" itemValue="id"></form:select></td>
 			</tr>
 			<tr>
 				<td colspan="2"><input type="submit"
