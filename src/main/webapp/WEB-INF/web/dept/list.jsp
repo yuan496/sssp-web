@@ -43,8 +43,8 @@ body {
 					<td>${dept.code}</td>
 					<td>${dept.name}</td>
 					<td><fmt:formatDate value="${dept.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
-					<td><a href="${pageContext.request.contextPath }/web/dept/dept/${dept.id}">edit</a></td>
-					<td><a href="${pageContext.request.contextPath }/web/dept/delete?id=${dept.id}">delete</a></td>
+					<td><a href="${pageContext.request.contextPath }/dept/dept/${dept.id}">edit</a></td>
+					<td><a href="${pageContext.request.contextPath }/dept/delete?id=${dept.id}">delete</a></td>
 				</tr>
 			</c:forEach>
 			<tr>
