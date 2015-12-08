@@ -50,7 +50,7 @@
 		<context:include-filter type="annotation"
 			expression="org.springframework.web.bind.annotation.ControllerAdvice" />
 	</context:component-scan>
-
+	
 	<!-- spring mvc的jsp视图 -->
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -143,7 +143,7 @@
 	<!-- 异常拦截处理 -->
 	<bean id="exceptionResolver"
 		class="com.fzb.sssp.web.support.CustomExceptionHandlerExceptionResolver">
-		<property name="defaultErrorView" value="/WEB-INF/web/error.jsp" /><!--错误页面 -->
+		<property name="defaultErrorView" value="error" /><!--错误页面 -->
 		<!--标有@ResponseBody被此messageConverters输出 -->
 		<property name="messageConverters">
 			<list>

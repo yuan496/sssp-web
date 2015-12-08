@@ -87,7 +87,7 @@ public class CustomExceptionHandlerExceptionResolver extends ExceptionHandlerExc
 			}
 		}
 		request.getSession().setAttribute("errMsg", errMsg);
-		returnValue.setViewName("redirect:" + defaultErrorView);
+		returnValue.setViewName(defaultErrorView);
 		return returnValue;
 	}
 	
