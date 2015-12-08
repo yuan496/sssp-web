@@ -30,6 +30,7 @@ public class Department implements Serializable {
 	private Integer id;
 	private String code;
 	private String name;
+	private Department parent;
 	private Date createTime;
 	private Date updateTime;
 	private Date deleteTime;

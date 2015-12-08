@@ -1,45 +1,38 @@
+/**
+ * 
+ */
 package com.fzb.sssp.domain;
 
 import java.io.Serializable;
 import java.util.Date;
+
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * {描述: 功能，使用对象，使用方法等}
+ * 操作类
  * 
- * @author fangzhibin
- * @since 版本号，从什么版本开始
- * @createDate 2015年12月7日 上午10:45:33
+ * @author zhuyuyin
  */
-@Table(name = "SSSP_ROLE")
 @Entity
-@XmlRootElement
-public class Role implements Serializable {
+public class Operate implements Serializable {
 
-	/**
-	 * TODO(用一句话描述这个变量表示什么)
-	 */
-	private static final long serialVersionUID = -2638442790902536124L;
-	private Integer id;
+	private static final long serialVersionUID = -6886711865928684439L;
+
+	private Long id;
 	private String code;
+	private String url;
 	private String name;
+	private String cssStyle;
+	private Menu menu;
 	private Date createTime;
 	private Date updateTime;
 	private Date deleteTime;
 
-	@GeneratedValue
-	@Id
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -51,6 +44,14 @@ public class Role implements Serializable {
 		this.code = code;
 	}
 
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -59,7 +60,22 @@ public class Role implements Serializable {
 		this.name = name;
 	}
 
-	@Temporal(TemporalType.TIMESTAMP)
+	public String getCssStyle() {
+		return cssStyle;
+	}
+
+	public void setCssStyle(String cssStyle) {
+		this.cssStyle = cssStyle;
+	}
+
+	public Menu getMenu() {
+		return menu;
+	}
+
+	public void setMenu(Menu menu) {
+		this.menu = menu;
+	}
+
 	public Date getCreateTime() {
 		return createTime;
 	}
@@ -68,7 +84,6 @@ public class Role implements Serializable {
 		this.createTime = createTime;
 	}
 
-	@Temporal(TemporalType.TIMESTAMP)
 	public Date getUpdateTime() {
 		return updateTime;
 	}
@@ -77,7 +92,6 @@ public class Role implements Serializable {
 		this.updateTime = updateTime;
 	}
 
-	@Temporal(TemporalType.TIMESTAMP)
 	public Date getDeleteTime() {
 		return deleteTime;
 	}

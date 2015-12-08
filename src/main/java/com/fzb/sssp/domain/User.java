@@ -32,6 +32,10 @@ public class User implements Serializable {
 	private String name;
 	private String mobile;
 	private String address;
+	private String email;
+	private String password;
+	private Integer age;
+	private String sex;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date birth;
 	private Date createTime;
@@ -122,5 +126,21 @@ public class User implements Serializable {
 	
 	public void setDeleteTime(Date deleteTime) {
 		this.deleteTime = deleteTime;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 }
