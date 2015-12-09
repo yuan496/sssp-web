@@ -26,7 +26,7 @@ public class RoleController {
 	private RoleService roleService;
 	
 	@ModelAttribute
-	public void getRole(@RequestParam(value = "id", required = false) Integer id, Map<String, Object> map) {
+	public void getRole(@RequestParam(value = "id", required = false) Long id, Map<String, Object> map) {
 		if (null != id) {
 			Role role = roleService.get(id);
 			map.put("role", role);
@@ -61,7 +61,7 @@ public class RoleController {
 	}
 	
 	@RequestMapping(value = "/role/{id}", method = RequestMethod.GET)
-	public String input(@PathVariable("id") Integer id, Map<String, Object> map) {
+	public String input(@PathVariable("id") Long id, Map<String, Object> map) {
 		Role role = roleService.get(id);
 		map.put("role", role);
 		return "emp/input";
@@ -74,7 +74,7 @@ public class RoleController {
 	}
 	
 	@RequestMapping(value = "/delete")
-	public String delete(@RequestParam(value = "id") Integer id) {
+	public String delete(@RequestParam(value = "id") Long id) {
 		roleService.delete(id);
 		return "redirect:/role/list";
 	}

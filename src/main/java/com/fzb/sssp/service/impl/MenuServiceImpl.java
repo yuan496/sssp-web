@@ -1,6 +1,7 @@
 package com.fzb.sssp.service.impl;
 
 import java.util.Date;
+import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,21 @@ public class MenuServiceImpl implements MenuService {
 	
 	@Autowired
 	private MenuRepository menuRepository;
+	
+	/**
+	 * {简述，保留点号}.
+	 * <p>
+	 * {详述}
+	 * <p>
+	 * <code>{样例代码， 小于号大于号转义&lt; &gt;}</code>
+	 * @author fangzhibin 2015年12月9日 上午11:17:09
+	 * @return
+	 * @modify {上次修改原因} by fangzhibin 2015年12月9日 上午11:17:09
+	 */
+	@Override
+	public List<Menu> getAll() {
+	    return menuRepository.getAll();
+	}
 	
 	/**
      * {简述，保留点号}.
@@ -77,7 +93,7 @@ public class MenuServiceImpl implements MenuService {
      * @modify {上次修改原因} by fangzhibin 2015年12月7日 下午7:26:13
      */
     @Override
-    public Menu get(Integer id) {
+    public Menu get(Long id) {
     	log.info("get the menu by id is {}", id);
 	    return menuRepository.findOne(id);
     }
@@ -93,7 +109,7 @@ public class MenuServiceImpl implements MenuService {
      * @modify {上次修改原因} by fangzhibin 2015年12月7日 下午7:26:13
      */
     @Override
-    public void delete(Integer id) {
+    public void delete(Long id) {
     	log.info("delete the menu by id is {}", id);
     	menuRepository.delete(id);
     }

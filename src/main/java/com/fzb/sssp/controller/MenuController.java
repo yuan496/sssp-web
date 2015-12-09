@@ -26,7 +26,7 @@ public class MenuController {
 	private MenuService menuService;
 	
 	@ModelAttribute
-	public void getMenu(@RequestParam(value = "id", required = false) Integer id, Map<String, Object> map) {
+	public void getMenu(@RequestParam(value = "id", required = false) Long id, Map<String, Object> map) {
 		if (null != id) {
 			Menu menu = menuService.get(id);
 			map.put("menu", menu);
@@ -61,7 +61,7 @@ public class MenuController {
 	}
 	
 	@RequestMapping(value = "/menu/{id}", method = RequestMethod.GET)
-	public String input(@PathVariable("id") Integer id, Map<String, Object> map) {
+	public String input(@PathVariable("id") Long id, Map<String, Object> map) {
 		Menu menu = menuService.get(id);
 		map.put("menu", menu);
 		return "menu/input";
@@ -74,7 +74,7 @@ public class MenuController {
 	}
 	
 	@RequestMapping(value = "/delete")
-	public String delete(@RequestParam(value = "id") Integer id) {
+	public String delete(@RequestParam(value = "id") Long id) {
 		menuService.delete(id);
 		return "redirect:/menu/list";
 	}

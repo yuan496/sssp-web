@@ -29,7 +29,7 @@ public class EmployeeController {
 	private DepartmentService departmentService;
 	
 	@ModelAttribute
-	public void getEmployee(@RequestParam(value = "id", required = false) Integer id, Map<String, Object> map) {
+	public void getEmployee(@RequestParam(value = "id", required = false) Long id, Map<String, Object> map) {
 		if (null != id) {
 			Employee employee = employeeService.get(id);
 			employee.setDepartment(null);
@@ -66,7 +66,7 @@ public class EmployeeController {
 	}
 	
 	@RequestMapping(value = "/emp/{id}", method = RequestMethod.GET)
-	public String input(@PathVariable("id") Integer id, Map<String, Object> map) {
+	public String input(@PathVariable("id") Long id, Map<String, Object> map) {
 		Employee employee = employeeService.get(id);
 		map.put("employee", employee);
 		map.put("departments", departmentService.getAll());
@@ -80,7 +80,7 @@ public class EmployeeController {
 	}
 	
 	@RequestMapping(value = "/delete")
-	public String delete(@RequestParam(value = "id") Integer id) {
+	public String delete(@RequestParam(value = "id") Long id) {
 		employeeService.delete(id);
 		return "redirect:/emp/list";
 	}

@@ -5,11 +5,21 @@ package com.fzb.sssp.domain;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * @author zhuyuyin
  *
  */
+@Table(name = "SSSP_MOBILE_USER")
+@Entity
+@XmlRootElement
 public class MobileUser implements Serializable {
 
 	private static final long serialVersionUID = -3740088164664888154L;
@@ -20,6 +30,8 @@ public class MobileUser implements Serializable {
 	private Date deleteTime;
 	private String mobileId;
 
+	@GeneratedValue
+	@Id
 	public Long getId() {
 		return id;
 	}
@@ -36,6 +48,7 @@ public class MobileUser implements Serializable {
 		this.userName = userName;
 	}
 
+	@Temporal(TemporalType.TIMESTAMP)
 	public Date getCreateTime() {
 		return createTime;
 	}
@@ -44,6 +57,7 @@ public class MobileUser implements Serializable {
 		this.createTime = createTime;
 	}
 
+	@Temporal(TemporalType.TIMESTAMP)
 	public Date getDeleteTime() {
 		return deleteTime;
 	}

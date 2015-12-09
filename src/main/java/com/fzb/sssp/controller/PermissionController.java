@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import com.fzb.sssp.domain.Department;
-import com.fzb.sssp.service.DepartmentService;
+import com.fzb.sssp.domain.Permission;
+import com.fzb.sssp.service.PermissionService;
 
 
 /** {描述: 功能，使用对象，使用方法等}
@@ -19,17 +19,17 @@ import com.fzb.sssp.service.DepartmentService;
  * @createDate 2015年12月7日 下午7:16:49
  */
 @Controller
-@RequestMapping("/dept")
-public class DepartmentController {
+@RequestMapping("/permission")
+public class PermissionController {
 	
 	@Autowired
-	private DepartmentService departmentService;
+	private PermissionService permissionService;
 	
 	@ModelAttribute
-	public void getDepartment(@RequestParam(value = "id", required = false) Long id, Map<String, Object> map) {
+	public void getPermission(@RequestParam(value = "id", required = false) Long id, Map<String, Object> map) {
 		if (null != id) {
-			Department department = departmentService.get(id);
-			map.put("department", department);
+			Permission permission = permissionService.get(id);
+			map.put("permission", permission);
 		}
 	}
 	
@@ -43,39 +43,39 @@ public class DepartmentController {
 			}
 		} catch (NumberFormatException e) {
 		}
-		Page<Department> page = departmentService.getPage(pageNo, 5);
+		Page<Permission> page = permissionService.getPage(pageNo, 5);
 		map.put("page", page);
-		return "dept/list";
+		return "permission/list";
 	}
 	
-	@RequestMapping(value = "/dept", method = RequestMethod.GET)
+	@RequestMapping(value = "/permission", method = RequestMethod.GET)
 	public String input(Map<String, Object> map) {
-		map.put("department", new Department());
-		return "dept/input";
+		map.put("permission", new Permission());
+		return "permission/input";
 	}
 	
-	@RequestMapping(value = "/dept", method = RequestMethod.POST)
-	public String save(Department department) {
-		departmentService.save(department);
+	@RequestMapping(value = "/permission", method = RequestMethod.POST)
+	public String save(Permission permission) {
+		permissionService.save(permission);
 		return "redirect:list";
 	}
 	
-	@RequestMapping(value = "/dept/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/permission/{id}", method = RequestMethod.GET)
 	public String input(@PathVariable("id") Long id, Map<String, Object> map) {
-		Department department = departmentService.get(id);
-		map.put("department", department);
-		return "dept/input";
+		Permission permission = permissionService.get(id);
+		map.put("permission", permission);
+		return "permission/input";
 	}
 	
-	@RequestMapping(value = "/dept/{id}", method = RequestMethod.PUT)
-	public String update(Department department) {
-		departmentService.save(department);
-		return "redirect:/dept/list";
+	@RequestMapping(value = "/permission/{id}", method = RequestMethod.PUT)
+	public String update(Permission permission) {
+		permissionService.save(permission);
+		return "redirect:/permission/list";
 	}
 	
 	@RequestMapping(value = "/delete")
 	public String delete(@RequestParam(value = "id") Long id) {
-		departmentService.delete(id);
-		return "redirect:/dept/list";
+		permissionService.delete(id);
+		return "redirect:/permission/list";
 	}
 }

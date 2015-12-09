@@ -35,9 +35,9 @@ public interface DepartmentService {
 	
 	@GET
 	@Path("/get/{id}")
-	public Department get(@PathParam("id") Integer id);
+	public Department get(@PathParam("id") Long id);
 	
 	@DELETE
 	@Path("/delete/{id}")
-	public void delete(@PathParam("id") Integer id);
+	public void delete(@PathParam("id") Long id);
 }

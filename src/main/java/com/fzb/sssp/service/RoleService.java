@@ -30,9 +30,9 @@ public interface RoleService {
 	
 	@GET
 	@Path("/get/{id}")
-	public Role get(@PathParam("id") Integer id);
+	public Role get(@PathParam("id") Long id);
 	
 	@DELETE
 	@Path("/delete/{id}")
-	public void delete(@PathParam("id") Integer id);
+	public void delete(@PathParam("id") Long id);
 }

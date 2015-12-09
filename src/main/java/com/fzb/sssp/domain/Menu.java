@@ -30,7 +30,7 @@ public class Menu implements Serializable {
 	 * TODO(用一句话描述这个变量表示什么)
 	 */
 	private static final long serialVersionUID = 3870792703544463500L;
-	private Integer id;
+	private Long id;
 	private String code;
 	private String name;
 	private String url;
@@ -48,11 +48,11 @@ public class Menu implements Serializable {
 	
 	@GeneratedValue
 	@Id
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 	
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	

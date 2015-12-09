@@ -26,7 +26,7 @@ public class UserController {
 	private UserService userService;
 	
 	@ModelAttribute
-	public void getUser(@RequestParam(value = "id", required = false) Integer id, Map<String, Object> map) {
+	public void getUser(@RequestParam(value = "id", required = false) Long id, Map<String, Object> map) {
 		if (null != id) {
 			User user = userService.get(id);
 			map.put("user", user);
@@ -61,7 +61,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
-	public String input(@PathVariable("id") Integer id, Map<String, Object> map) {
+	public String input(@PathVariable("id") Long id, Map<String, Object> map) {
 		User user = userService.get(id);
 		map.put("user", user);
 		return "user/input";
@@ -74,7 +74,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/delete")
-	public String delete(@RequestParam(value = "id") Integer id) {
+	public String delete(@RequestParam(value = "id") Long id) {
 		userService.delete(id);
 		return "redirect:/user/list";
 	}

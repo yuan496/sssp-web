@@ -1,5 +1,6 @@
 package com.fzb.sssp.service;
 
+import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -20,6 +21,10 @@ import com.fzb.sssp.domain.Menu;
 public interface MenuService {
 	
 	@GET
+	@Path("/getAll")
+	public List<Menu> getAll();
+	
+	@GET
 	@Path("/getPage/{pageNo}/{pageSize}")
 	public Page<Menu> getPage(@PathParam("pageNo") int pageNo, @PathParam("pageSize") int pageSize);
 	
@@ -30,9 +35,9 @@ public interface MenuService {
 	
 	@GET
 	@Path("/get/{id}")
-	public Menu get(@PathParam("id") Integer id);
+	public Menu get(@PathParam("id") Long id);
 	
 	@DELETE
 	@Path("/delete/{id}")
-	public void delete(@PathParam("id") Integer id);
+	public void delete(@PathParam("id") Long id);
 }

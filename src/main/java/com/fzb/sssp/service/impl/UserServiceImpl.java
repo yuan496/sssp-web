@@ -76,7 +76,7 @@ public class UserServiceImpl implements UserService {
      * @modify {上次修改原因} by fangzhibin 2015年12月7日 下午7:26:13
      */
     @Override
-    public User get(Integer id) {
+    public User get(Long id) {
     	log.info("get the user by id is {}", id);
 	    return userRepository.findOne(id);
     }
@@ -92,7 +92,7 @@ public class UserServiceImpl implements UserService {
      * @modify {上次修改原因} by fangzhibin 2015年12月7日 下午7:26:13
      */
     @Override
-    public void delete(Integer id) {
+    public void delete(Long id) {
     	log.info("delete the user by id is {}", id);
     	userRepository.delete(id);
     }

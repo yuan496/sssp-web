@@ -93,7 +93,7 @@ public class DepartmentServiceImpl implements DepartmentService {
      * @modify {上次修改原因} by fangzhibin 2015年12月7日 下午7:26:13
      */
     @Override
-    public Department get(Integer id) {
+    public Department get(Long id) {
     	log.info("get the department by id is {}", id);
 	    return departmentRepository.findOne(id);
     }
@@ -109,7 +109,7 @@ public class DepartmentServiceImpl implements DepartmentService {
      * @modify {上次修改原因} by fangzhibin 2015年12月7日 下午7:26:13
      */
     @Override
-    public void delete(Integer id) {
+    public void delete(Long id) {
     	log.info("delete the department by id is {}", id);
     	departmentRepository.delete(id);
     }

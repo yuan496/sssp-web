@@ -26,7 +26,7 @@ public class User implements Serializable {
 	 * TODO(用一句话描述这个变量表示什么)
 	 */
 	private static final long serialVersionUID = 7263037082036036090L;
-	private Integer id;
+	private Long id;
 	private String code;
 	private String userName;
 	private String name;
@@ -44,11 +44,11 @@ public class User implements Serializable {
 	
 	@GeneratedValue
 	@Id
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 	
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	
@@ -127,20 +127,36 @@ public class User implements Serializable {
 	public void setDeleteTime(Date deleteTime) {
 		this.deleteTime = deleteTime;
 	}
-
+	
 	public String getEmail() {
 		return email;
 	}
-
+	
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
+	
 	public String getPassword() {
 		return password;
 	}
-
+	
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	public Integer getAge() {
+		return age;
+	}
+	
+	public void setAge(Integer age) {
+		this.age = age;
+	}
+	
+	public String getSex() {
+		return sex;
+	}
+	
+	public void setSex(String sex) {
+		this.sex = sex;
 	}
 }

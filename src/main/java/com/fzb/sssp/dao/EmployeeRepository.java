@@ -10,5 +10,5 @@ import com.fzb.sssp.domain.Employee;
  * @since 版本号，从什么版本开始
  * @createDate 2015年10月6日 下午12:28:43
  */
-public interface EmployeeRepository extends JpaRepository<Employee, Integer>, JpaSpecificationExecutor<Employee> {
+public interface EmployeeRepository extends JpaRepository<Employee, Long>, JpaSpecificationExecutor<Employee> {
 }

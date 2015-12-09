@@ -21,6 +21,12 @@
 	<jaxrs:server id="restService" address="/rest">
 		<jaxrs:serviceBeans>
 			<ref bean="employeeService" />
+			<ref bean="userService" />
+			<ref bean="roleService" />
+			<ref bean="menuService" />
+			<ref bean="departmentService" />
+			<ref bean="operateService" />
+			<ref bean="mobileUserService" />
 		</jaxrs:serviceBeans>
 		<jaxrs:extensionMappings>
             <entry key="json" value="application/json"/>

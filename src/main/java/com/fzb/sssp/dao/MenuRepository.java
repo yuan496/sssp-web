@@ -1,7 +1,11 @@
 package com.fzb.sssp.dao;
 
+import java.util.List;
+import javax.persistence.QueryHint;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.jpa.repository.QueryHints;
 import com.fzb.sssp.domain.Menu;
 
 /**
@@ -10,5 +14,9 @@ import com.fzb.sssp.domain.Menu;
  * @since 版本号，从什么版本开始
  * @createDate 2015年10月6日 下午12:28:43
  */
-public interface MenuRepository extends JpaRepository<Menu, Integer>, JpaSpecificationExecutor<Menu> {
+public interface MenuRepository extends JpaRepository<Menu, Long>, JpaSpecificationExecutor<Menu> {
+	
+	@QueryHints({@QueryHint(name=org.hibernate.jpa.QueryHints.HINT_CACHEABLE,value="true")})
+	@Query("FROM Menu d")
+	List<Menu> getAll();
 }

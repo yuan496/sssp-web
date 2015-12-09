@@ -14,7 +14,7 @@ import com.fzb.sssp.domain.Department;
  * @since 版本号，从什么版本开始
  * @createDate 2015年10月6日 下午12:28:43
  */
-public interface DepartmentRepository extends JpaRepository<Department, Integer>, JpaSpecificationExecutor<Department> {
+public interface DepartmentRepository extends JpaRepository<Department, Long>, JpaSpecificationExecutor<Department> {
 	
 	@QueryHints({@QueryHint(name=org.hibernate.jpa.QueryHints.HINT_CACHEABLE,value="true")})
 	@Query("FROM Department d")

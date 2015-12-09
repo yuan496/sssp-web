@@ -29,7 +29,7 @@ public class Employee implements Serializable {
     * TODO(用一句话描述这个变量表示什么) 
     */ 
     private static final long serialVersionUID = 3146358340155292516L;
-	private Integer id;
+	private Long id;
 	private String lastName;
 	private String email;
 	@DateTimeFormat(pattern="yyyy-MM-dd")
@@ -39,11 +39,11 @@ public class Employee implements Serializable {
 	
 	@GeneratedValue
 	@Id
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 	
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	

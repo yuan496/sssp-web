@@ -26,7 +26,7 @@ public class Role implements Serializable {
 	 * TODO(用一句话描述这个变量表示什么)
 	 */
 	private static final long serialVersionUID = -2638442790902536124L;
-	private Integer id;
+	private Long id;
 	private String code;
 	private String name;
 	private Date createTime;
@@ -35,11 +35,11 @@ public class Role implements Serializable {
 
 	@GeneratedValue
 	@Id
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import com.fzb.sssp.domain.Department;
-import com.fzb.sssp.service.DepartmentService;
+import com.fzb.sssp.domain.Operate;
+import com.fzb.sssp.service.MenuService;
+import com.fzb.sssp.service.OperateService;
 
 
 /** {描述: 功能，使用对象，使用方法等}
@@ -19,17 +20,21 @@ import com.fzb.sssp.service.DepartmentService;
  * @createDate 2015年12月7日 下午7:16:49
  */
 @Controller
-@RequestMapping("/dept")
-public class DepartmentController {
+@RequestMapping("/operate")
+public class OperateController {
 	
 	@Autowired
-	private DepartmentService departmentService;
+	private OperateService operateService;
+	
+	@Autowired
+	private MenuService menuService;
 	
 	@ModelAttribute
-	public void getDepartment(@RequestParam(value = "id", required = false) Long id, Map<String, Object> map) {
+	public void getOperate(@RequestParam(value = "id", required = false) Long id, Map<String, Object> map) {
 		if (null != id) {
-			Department department = departmentService.get(id);
-			map.put("department", department);
+			Operate operate = operateService.get(id);
+			operate.setMenu(null);
+			map.put("operate", operate);
 		}
 	}
 	
@@ -43,39 +48,41 @@ public class DepartmentController {
 			}
 		} catch (NumberFormatException e) {
 		}
-		Page<Department> page = departmentService.getPage(pageNo, 5);
+		Page<Operate> page = operateService.getPage(pageNo, 5);
 		map.put("page", page);
-		return "dept/list";
+		return "operate/list";
 	}
 	
-	@RequestMapping(value = "/dept", method = RequestMethod.GET)
+	@RequestMapping(value = "/operate", method = RequestMethod.GET)
 	public String input(Map<String, Object> map) {
-		map.put("department", new Department());
-		return "dept/input";
+		map.put("menus", menuService.getAll());
+		map.put("operate", new Operate());
+		return "operate/input";
 	}
 	
-	@RequestMapping(value = "/dept", method = RequestMethod.POST)
-	public String save(Department department) {
-		departmentService.save(department);
+	@RequestMapping(value = "/operate", method = RequestMethod.POST)
+	public String save(Operate operate) {
+		operateService.save(operate);
 		return "redirect:list";
 	}
 	
-	@RequestMapping(value = "/dept/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/operate/{id}", method = RequestMethod.GET)
 	public String input(@PathVariable("id") Long id, Map<String, Object> map) {
-		Department department = departmentService.get(id);
-		map.put("department", department);
-		return "dept/input";
+		Operate operate = operateService.get(id);
+		map.put("operate", operate);
+		map.put("menus", menuService.getAll());
+		return "operate/input";
 	}
 	
-	@RequestMapping(value = "/dept/{id}", method = RequestMethod.PUT)
-	public String update(Department department) {
-		departmentService.save(department);
-		return "redirect:/dept/list";
+	@RequestMapping(value = "/operate/{id}", method = RequestMethod.PUT)
+	public String update(Operate operate) {
+		operateService.save(operate);
+		return "redirect:/operate/list";
 	}
 	
 	@RequestMapping(value = "/delete")
 	public String delete(@RequestParam(value = "id") Long id) {
-		departmentService.delete(id);
-		return "redirect:/dept/list";
+		operateService.delete(id);
+		return "redirect:/operate/list";
 	}
 }

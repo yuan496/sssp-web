@@ -30,9 +30,9 @@ public interface EmployeeService {
 	
 	@GET
 	@Path("/get/{id}")
-	public Employee get(@PathParam("id") Integer id);
+	public Employee get(@PathParam("id") Long id);
 	
 	@DELETE
 	@Path("/delete/{id}")
-	public void delete(@PathParam("id") Integer id);
+	public void delete(@PathParam("id") Long id);
 }

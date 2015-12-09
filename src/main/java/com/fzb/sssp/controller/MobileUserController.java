@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import com.fzb.sssp.domain.Department;
-import com.fzb.sssp.service.DepartmentService;
+import com.fzb.sssp.domain.MobileUser;
+import com.fzb.sssp.service.MobileUserService;
 
 
 /** {描述: 功能，使用对象，使用方法等}
@@ -19,17 +19,17 @@ import com.fzb.sssp.service.DepartmentService;
  * @createDate 2015年12月7日 下午7:16:49
  */
 @Controller
-@RequestMapping("/dept")
-public class DepartmentController {
+@RequestMapping("/mobileUser")
+public class MobileUserController {
 	
 	@Autowired
-	private DepartmentService departmentService;
+	private MobileUserService mobileUserService;
 	
 	@ModelAttribute
-	public void getDepartment(@RequestParam(value = "id", required = false) Long id, Map<String, Object> map) {
+	public void getMobileUser(@RequestParam(value = "id", required = false) Long id, Map<String, Object> map) {
 		if (null != id) {
-			Department department = departmentService.get(id);
-			map.put("department", department);
+			MobileUser mobileUser = mobileUserService.get(id);
+			map.put("mobileUser", mobileUser);
 		}
 	}
 	
@@ -43,39 +43,39 @@ public class DepartmentController {
 			}
 		} catch (NumberFormatException e) {
 		}
-		Page<Department> page = departmentService.getPage(pageNo, 5);
+		Page<MobileUser> page = mobileUserService.getPage(pageNo, 5);
 		map.put("page", page);
-		return "dept/list";
+		return "mobileUser/list";
 	}
 	
-	@RequestMapping(value = "/dept", method = RequestMethod.GET)
+	@RequestMapping(value = "/mobileUser", method = RequestMethod.GET)
 	public String input(Map<String, Object> map) {
-		map.put("department", new Department());
-		return "dept/input";
+		map.put("mobileUser", new MobileUser());
+		return "mobileUser/input";
 	}
 	
-	@RequestMapping(value = "/dept", method = RequestMethod.POST)
-	public String save(Department department) {
-		departmentService.save(department);
+	@RequestMapping(value = "/mobileUser", method = RequestMethod.POST)
+	public String save(MobileUser mobileUser) {
+		mobileUserService.save(mobileUser);
 		return "redirect:list";
 	}
 	
-	@RequestMapping(value = "/dept/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/mobileUser/{id}", method = RequestMethod.GET)
 	public String input(@PathVariable("id") Long id, Map<String, Object> map) {
-		Department department = departmentService.get(id);
-		map.put("department", department);
-		return "dept/input";
+		MobileUser mobileUser = mobileUserService.get(id);
+		map.put("mobileUser", mobileUser);
+		return "mobileUser/input";
 	}
 	
-	@RequestMapping(value = "/dept/{id}", method = RequestMethod.PUT)
-	public String update(Department department) {
-		departmentService.save(department);
-		return "redirect:/dept/list";
+	@RequestMapping(value = "/mobileUser/{id}", method = RequestMethod.PUT)
+	public String update(MobileUser mobileUser) {
+		mobileUserService.save(mobileUser);
+		return "redirect:/mobileUser/list";
 	}
 	
 	@RequestMapping(value = "/delete")
 	public String delete(@RequestParam(value = "id") Long id) {
-		departmentService.delete(id);
-		return "redirect:/dept/list";
+		mobileUserService.delete(id);
+		return "redirect:/mobileUser/list";
 	}
 }

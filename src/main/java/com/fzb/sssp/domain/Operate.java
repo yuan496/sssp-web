@@ -1,19 +1,27 @@
-/**
- * 
- */
 package com.fzb.sssp.domain;
 
 import java.io.Serializable;
 import java.util.Date;
-
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * 操作类
- * 
- * @author zhuyuyin
+ * @author fangzhibin
+ * @since 版本号，从什么版本开始
+ * @createDate 2015年12月9日 上午9:56:31
  */
+@Table(name = "SSSP_OPERATE")
 @Entity
+@XmlRootElement
 public class Operate implements Serializable {
 
 	private static final long serialVersionUID = -6886711865928684439L;
@@ -28,6 +36,8 @@ public class Operate implements Serializable {
 	private Date updateTime;
 	private Date deleteTime;
 
+	@GeneratedValue
+	@Id
 	public Long getId() {
 		return id;
 	}
@@ -68,6 +78,8 @@ public class Operate implements Serializable {
 		this.cssStyle = cssStyle;
 	}
 
+	@JoinColumn(name = "MENU_ID")
+	@ManyToOne(fetch = FetchType.EAGER)
 	public Menu getMenu() {
 		return menu;
 	}
@@ -76,6 +88,7 @@ public class Operate implements Serializable {
 		this.menu = menu;
 	}
 
+	@Temporal(TemporalType.TIMESTAMP)
 	public Date getCreateTime() {
 		return createTime;
 	}
@@ -84,6 +97,7 @@ public class Operate implements Serializable {
 		this.createTime = createTime;
 	}
 
+	@Temporal(TemporalType.TIMESTAMP)
 	public Date getUpdateTime() {
 		return updateTime;
 	}
@@ -92,6 +106,7 @@ public class Operate implements Serializable {
 		this.updateTime = updateTime;
 	}
 
+	@Temporal(TemporalType.TIMESTAMP)
 	public Date getDeleteTime() {
 		return deleteTime;
 	}

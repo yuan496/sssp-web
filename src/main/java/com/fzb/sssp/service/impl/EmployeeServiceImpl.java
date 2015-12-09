@@ -76,7 +76,7 @@ public class EmployeeServiceImpl implements EmployeeService {
      * @modify {上次修改原因} by fangzhibin 2015年10月6日 下午9:40:15
      */
     @Override
-    public Employee get(Integer id) {
+    public Employee get(Long id) {
     	log.info("get the employee by id is {}", id);
 	    return employeeRepository.findOne(id);
     }
@@ -92,7 +92,7 @@ public class EmployeeServiceImpl implements EmployeeService {
      * @modify {上次修改原因} by fangzhibin 2015年10月6日 下午11:08:07
      */
     @Override
-    public void delete(Integer id) {
+    public void delete(Long id) {
     	log.info("delete the employee by id is {}", id);
     	employeeRepository.delete(id);
     }

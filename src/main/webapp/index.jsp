@@ -16,5 +16,11 @@
 <br/>
 <a href="${pageContext.request.contextPath }/dept/list">dept-list</a>
 <a href="${pageContext.request.contextPath }/dept/dept">dept-add</a>
+<br/>
+<a href="${pageContext.request.contextPath }/operate/list">operate-list</a>
+<a href="${pageContext.request.contextPath }/operate/operate">operate-add</a>
+<br/>
+<a href="${pageContext.request.contextPath }/mobileUser/list">mobileUser-list</a>
+<a href="${pageContext.request.contextPath }/mobileUser/mobileUser">mobileUser-add</a>
 </body>
 </html>

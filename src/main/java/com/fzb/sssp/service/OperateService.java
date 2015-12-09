@@ -8,7 +8,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
 import org.springframework.data.domain.Page;
-import com.fzb.sssp.domain.User;
+import com.fzb.sssp.domain.Operate;
 
 
 /** {描述: 功能，使用对象，使用方法等}
@@ -16,21 +16,21 @@ import com.fzb.sssp.domain.User;
  * @since 版本号，从什么版本开始
  * @createDate 2015年10月6日 下午12:30:50
  */
-@Path("/userService")
-public interface UserService {
+@Path("/operateService")
+public interface OperateService {
 	
 	@GET
 	@Path("/getPage/{pageNo}/{pageSize}")
-	public Page<User> getPage(@PathParam("pageNo") int pageNo, @PathParam("pageSize") int pageSize);
+	public Page<Operate> getPage(@PathParam("pageNo") int pageNo, @PathParam("pageSize") int pageSize);
 	
 	@PUT
 	@Path("/save")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public void save(User user);
+	public void save(Operate operate);
 	
 	@GET
 	@Path("/get/{id}")
-	public User get(@PathParam("id") Long id);
+	public Operate get(@PathParam("id") Long id);
 	
 	@DELETE
 	@Path("/delete/{id}")
