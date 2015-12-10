@@ -27,10 +27,6 @@
 				<input type="hidden" name="_method" value="PUT" />
 			</c:if>
 			<tr>
-				<td><form:label path="code">code</form:label></td>
-				<td><form:input path="code" /></td>
-			</tr>
-			<tr>
 				<td><form:label path="userName">userName</form:label></td>
 				<td><form:input path="userName" /></td>
 			</tr>

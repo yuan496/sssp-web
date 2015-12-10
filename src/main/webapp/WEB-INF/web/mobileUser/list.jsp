@@ -32,7 +32,6 @@ body {
 	<c:if test="${page != null && page.numberOfElements > 0}">
 		<table class="data">
 			<tr>
-				<td class="head"><spring:message code="mobileUser.code"></spring:message></td>
 				<td class="head"><spring:message code="mobileUser.userName"></spring:message></td>
 				<td class="head"><spring:message code="mobileUser.mobileId"></spring:message></td>
 				<td class="head"><spring:message code="base.createTime"></spring:message></td>
@@ -41,7 +40,6 @@ body {
 			</tr>
 			<c:forEach items="${page.content}" var="mobileUser">
 				<tr>
-					<td>${mobileUser.code}</td>
 					<td>${mobileUser.userName}</td>
 					<td><fmt:formatDate value="${mobileUser.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 					<td>${mobileUser.mobileId}</td>
