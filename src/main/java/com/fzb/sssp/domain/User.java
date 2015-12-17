@@ -2,9 +2,14 @@ package com.fzb.sssp.domain;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -41,6 +46,7 @@ public class User implements Serializable {
 	private Date createTime;
 	private Date updateTime;
 	private Date deleteTime;
+	private Set<Role> roles;
 	
 	@GeneratedValue
 	@Id
@@ -99,6 +105,16 @@ public class User implements Serializable {
 	
 	public void setBirth(Date birth) {
 		this.birth = birth;
+	}
+	
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "sssp_user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+	public Set<Role> getRoles() {
+		return roles;
+	}
+	
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
 	}
 	
 	@Temporal(TemporalType.TIMESTAMP)
