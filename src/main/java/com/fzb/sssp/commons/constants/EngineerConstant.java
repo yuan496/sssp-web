@@ -13,6 +13,6 @@ public class EngineerConstant {
 	public static final String ENABLE_NO = "0";
 	public static final String STATUS_YES = "1";
 	public static final String STATUS_NO = "0";
-	public final static String ADMIN_NAME = "admin"; // admin用户名称
+	public final static String ADMIN_CODE = "admin"; // admin code
 	public final static String IS_ADMIN = "isAdmin";
 }

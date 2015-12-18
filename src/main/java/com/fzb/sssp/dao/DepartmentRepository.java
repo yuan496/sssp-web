@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.jpa.repository.QueryHints;
-import com.fzb.sssp.domain.Department;
+import com.fzb.sssp.entity.Department;
 
 /**
  * {描述: 功能，使用对象，使用方法等}

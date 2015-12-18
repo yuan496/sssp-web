@@ -9,7 +9,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.fzb.sssp.dao.RoleRepository;
-import com.fzb.sssp.domain.Role;
+import com.fzb.sssp.entity.Role;
 import com.fzb.sssp.service.RoleService;
 
 

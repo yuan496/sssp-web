@@ -101,6 +101,7 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
 		<property name="handlers">
 			<!-- 把handler加入到chain中，注意顺序 -->  
             <list>
+            	<ref bean="initSsspDb"/>
             </list>  
         </property> 
 	</bean>

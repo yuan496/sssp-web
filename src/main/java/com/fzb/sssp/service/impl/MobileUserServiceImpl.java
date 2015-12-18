@@ -9,7 +9,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.fzb.sssp.dao.MobileUserRepository;
-import com.fzb.sssp.domain.MobileUser;
+import com.fzb.sssp.entity.MobileUser;
 import com.fzb.sssp.service.MobileUserService;
 
 

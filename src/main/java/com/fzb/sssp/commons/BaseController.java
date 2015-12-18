@@ -32,10 +32,10 @@ public class BaseController {
 	
 	/**
 	 * 根据spring的validate验证返回结果，转换成map信息返回给页面,页面获取方式${errors?.属性名}
-	 * @author shanguoming 2015年3月26日 下午2:40:06
+	 * @author fangzhibin 2015年3月26日 下午2:40:06
 	 * @param result spring的validate验证结果
 	 * @param model
-	 * @modify: {原因} by shanguoming 2014年8月26日 下午2:40:06
+	 * @modify: {原因} by fangzhibin 2014年8月26日 下午2:40:06
 	 */
 	protected void validate(BindingResult result, ModelMap model) {
 		if (result == null || model == null) {
@@ -53,10 +53,10 @@ public class BaseController {
 	
 	/**
 	 * 获取客户端ip地址
-	 * @author shanguoming 2015年5月20日 上午11:48:12
+	 * @author fangzhibin 2015年5月20日 上午11:48:12
 	 * @param request
 	 * @return
-	 * @modify: {原因} by shanguoming 2015年5月20日 上午11:48:12
+	 * @modify: {原因} by fangzhibin 2015年5月20日 上午11:48:12
 	 */
 	protected String getRemoteAddress(HttpServletRequest request) {
 		String ip = request.getHeader("X-Real-IP");

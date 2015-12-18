@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.fzb.sssp.domain;
+package com.fzb.sssp.entity;
 
 import java.io.Serializable;
 import javax.persistence.Entity;

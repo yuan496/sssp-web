@@ -19,7 +19,7 @@
 		<hibernate.version>5.0.4.Final</hibernate.version>
 		<hibernate-validator.version>5.2.2.Final</hibernate-validator.version>
 		<commons-beanutils.version>1.9.2</commons-beanutils.version>
-		<commons-collections.version>3.2.1</commons-collections.version>
+		<commons-collections.version>4.1</commons-collections.version>
 		<commons-dbcp.version>1.4</commons-dbcp.version>
 		<mysql.version>5.1.35</mysql.version>
 		<postgresql.version>9.1-901-1.jdbc4</postgresql.version>
@@ -173,8 +173,8 @@
 				</exclusions>
 			</dependency>
 			<dependency>
-				<groupId>commons-collections</groupId>
-				<artifactId>commons-collections</artifactId>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-collections4</artifactId>
 				<version>${commons-collections.version}</version>
 			</dependency>
 			<dependency>

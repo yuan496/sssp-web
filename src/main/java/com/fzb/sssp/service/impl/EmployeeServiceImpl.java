@@ -9,7 +9,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.fzb.sssp.dao.EmployeeRepository;
-import com.fzb.sssp.domain.Employee;
+import com.fzb.sssp.entity.Employee;
 import com.fzb.sssp.service.EmployeeService;
 
 

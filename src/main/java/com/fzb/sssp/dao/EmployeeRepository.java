@@ -2,7 +2,7 @@ package com.fzb.sssp.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
-import com.fzb.sssp.domain.Employee;
+import com.fzb.sssp.entity.Employee;
 
 /**
  * {描述: 功能，使用对象，使用方法等}

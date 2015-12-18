@@ -9,7 +9,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.fzb.sssp.dao.OperateRepository;
-import com.fzb.sssp.domain.Operate;
+import com.fzb.sssp.entity.Operate;
 import com.fzb.sssp.service.OperateService;
 
 

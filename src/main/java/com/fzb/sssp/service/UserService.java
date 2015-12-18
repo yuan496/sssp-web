@@ -1,5 +1,6 @@
 package com.fzb.sssp.service;
 
+import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -8,7 +9,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
 import org.springframework.data.domain.Page;
-import com.fzb.sssp.domain.User;
+import com.fzb.sssp.entity.User;
 
 
 /** {描述: 功能，使用对象，使用方法等}
@@ -35,4 +36,19 @@ public interface UserService {
 	@DELETE
 	@Path("/delete/{id}")
 	public void delete(@PathParam("id") Long id);
+
+	/**
+     * {简述，保留点号}.
+     * <p>
+     * {详述}
+     * <p>
+     * <code>{样例代码， 小于号大于号转义&lt; &gt;}</code>
+     * @author fangzhibin 2015年12月18日 上午11:05:00
+     * @param adminName
+     * @return
+     * @modify {上次修改原因} by fangzhibin 2015年12月18日 上午11:05:00
+     */
+	@GET
+	@Path("/get/{code}")
+    public List<User> findByCode(String code);
 }

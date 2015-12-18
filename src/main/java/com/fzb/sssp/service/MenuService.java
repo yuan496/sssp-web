@@ -9,7 +9,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
 import org.springframework.data.domain.Page;
-import com.fzb.sssp.domain.Menu;
+import com.fzb.sssp.entity.Menu;
 
 
 /** {描述: 功能，使用对象，使用方法等}

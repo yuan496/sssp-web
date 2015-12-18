@@ -1,7 +1,7 @@
 package com.fzb.sssp.service;
 
 import org.springframework.data.domain.Page;
-import com.fzb.sssp.domain.Permission;
+import com.fzb.sssp.entity.Permission;
 
 /**
  * {描述: 功能，使用对象，使用方法等}

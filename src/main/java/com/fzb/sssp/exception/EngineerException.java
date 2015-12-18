@@ -40,9 +40,9 @@ public class EngineerException extends RuntimeException {
 	
 	/**
 	 * 返回异常信息，若msg为空，则根据code从资源文件获取，若资源文件没有对应信息，则直接返回堆栈异常信息
-	 * @author shanguoming 2015年4月1日 上午9:09:43
+	 * @author fangzhibin 2015年4月1日 上午9:09:43
 	 * @return
-	 * @modify: {原因} by shanguoming 2015年4月1日 上午9:09:43
+	 * @modify: {原因} by fangzhibin 2015年4月1日 上午9:09:43
 	 */
 	@Override
 	public String getMessage() {

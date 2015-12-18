@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import com.fzb.sssp.domain.Operate;
+import com.fzb.sssp.entity.Operate;
 import com.fzb.sssp.service.MenuService;
 import com.fzb.sssp.service.OperateService;
 

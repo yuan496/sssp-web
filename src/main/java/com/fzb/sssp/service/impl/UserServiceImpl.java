@@ -1,6 +1,7 @@
 package com.fzb.sssp.service.impl;
 
 import java.util.Date;
+import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +10,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.fzb.sssp.dao.UserRepository;
-import com.fzb.sssp.domain.User;
+import com.fzb.sssp.entity.User;
 import com.fzb.sssp.service.UserService;
 
 
@@ -80,7 +81,7 @@ public class UserServiceImpl implements UserService {
     	log.info("get the user by id is {}", id);
 	    return userRepository.findOne(id);
     }
-
+    
 	/**
      * {简述，保留点号}.
      * <p>
@@ -95,5 +96,21 @@ public class UserServiceImpl implements UserService {
     public void delete(Long id) {
     	log.info("delete the user by id is {}", id);
     	userRepository.delete(id);
+    }
+    
+    /**
+     * {简述，保留点号}.
+     * <p>
+     * {详述}
+     * <p>
+     * <code>{样例代码， 小于号大于号转义&lt; &gt;}</code>
+     * @author fangzhibin 2015年12月18日 上午10:53:10
+     * @param code
+     * @return
+     * @modify {上次修改原因} by fangzhibin 2015年12月18日 上午10:53:10
+     */
+    @Override
+    public List<User> findByCode(String code) {
+        return userRepository.findByCode(code);
     }
 }
