@@ -2,6 +2,7 @@ package com.fzb.sssp.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -47,6 +48,7 @@ public class User implements Serializable {
 	private Date updateTime;
 	private Date deleteTime;
 	private Set<Role> roles;
+	private List<Order> orders;
 	
 	@GeneratedValue
 	@Id
@@ -174,5 +176,14 @@ public class User implements Serializable {
 	
 	public void setSex(String sex) {
 		this.sex = sex;
+	}
+	
+	@ManyToMany(mappedBy = "orders", cascade = CascadeType.ALL)
+	public List<Order> getOrders() {
+		return orders;
+	}
+	
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
 	}
 }
