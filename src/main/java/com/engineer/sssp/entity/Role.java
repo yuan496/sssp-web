@@ -2,6 +2,7 @@ package com.engineer.sssp.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -34,7 +35,7 @@ public class Role implements Serializable {
 	private Date createTime;
 	private Date updateTime;
 	private Date deleteTime;
-	private Set<User> users;
+	private Set<User> users = new HashSet<User>();
 	
 	@GeneratedValue
 	@Id

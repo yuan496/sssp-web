@@ -1,14 +1,13 @@
 package com.engineer.sssp.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -46,7 +45,7 @@ public class Order implements Serializable {
 	private Date createTime;
 	private Date updateTime;
 	private Date deleteTime;
-	private List<User> owners;
+	private List<User> owners = new ArrayList<User>();
 	
 	@GeneratedValue
 	@Id
@@ -174,8 +173,7 @@ public class Order implements Serializable {
 		this.deleteTime = deleteTime;
 	}
 	
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "sssp_order_owner", joinColumns = @JoinColumn(name = "order_id"), inverseJoinColumns = @JoinColumn(name = "owner_id"))
+	@ManyToMany(mappedBy = "orders", cascade = CascadeType.ALL)
 	public List<User> getOwners() {
 		return owners;
 	}

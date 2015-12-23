@@ -1,7 +1,9 @@
 package com.engineer.sssp.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import javax.persistence.CascadeType;
@@ -47,8 +49,8 @@ public class User implements Serializable {
 	private Date createTime;
 	private Date updateTime;
 	private Date deleteTime;
-	private Set<Role> roles;
-	private List<Order> orders;
+	private Set<Role> roles = new HashSet<Role>();
+	private List<Order> orders = new ArrayList<Order>();
 	
 	@GeneratedValue
 	@Id
@@ -178,7 +180,8 @@ public class User implements Serializable {
 		this.sex = sex;
 	}
 	
-	@ManyToMany(mappedBy = "orders", cascade = CascadeType.ALL)
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "sssp_order_owner", joinColumns = @JoinColumn(name = "owner_id"), inverseJoinColumns = @JoinColumn(name = "order_id"))
 	public List<Order> getOrders() {
 		return orders;
 	}
