@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ssspDb>
-	<com.fzb.sssp.entity.User code="admin" name="admin" userName="admin" mobile="13666666666" address="阡陌路555号" email="admin@gmail.com" age="100" birth="1949-10-01 10:01:00" sex="男"></com.fzb.sssp.entity.User>
+	<com.engineer.sssp.entity.User code="admin" name="admin" userName="admin" mobile="13666666666" address="阡陌路555号" email="admin@gmail.com" age="100" birth="1949-10-01 10:01:00" sex="男"></com.engineer.sssp.entity.User>
 </ssspDb>
