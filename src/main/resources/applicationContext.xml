@@ -13,7 +13,7 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
 
 	<context:property-placeholder location="classpath:db.properties" />
 
-	<context:component-scan base-package="com.fzb.sssp">
+	<context:component-scan base-package="com.engineer.sssp">
 		<context:exclude-filter type="annotation"
 			expression="org.springframework.stereotype.Controller" />
 		<context:exclude-filter type="annotation"
@@ -48,7 +48,7 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="packagesToScan" value="com.fzb.sssp" />
+		<property name="packagesToScan" value="com.engineer.sssp" />
 		<property name="persistenceProvider">
 			<bean class="org.hibernate.jpa.HibernatePersistenceProvider" />
 		</property>
@@ -87,17 +87,17 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
 	<tx:annotation-driven transaction-manager="transactionManager"
 		proxy-target-class="true" />
 
-	<jpa:repositories base-package="com.fzb.sssp"
+	<jpa:repositories base-package="com.engineer.sssp"
 		repository-impl-postfix="Impl" entity-manager-factory-ref="entityManagerFactory"
 		transaction-manager-ref="transactionManager">
 	</jpa:repositories>
 	
 	<import resource="cxf-server.xml"/>
 
-	<bean id="appContext" class="com.fzb.sssp.commons.AppContext" />
+	<bean id="appContext" class="com.engineer.sssp.commons.AppContext" />
 	
 	<!-- 初始化加载操作 -->	
-	<bean id="initHandlerChain"  class="com.fzb.sssp.init.InitHandlerChain">
+	<bean id="initHandlerChain"  class="com.engineer.sssp.init.InitHandlerChain">
 		<property name="handlers">
 			<!-- 把handler加入到chain中，注意顺序 -->  
             <list>

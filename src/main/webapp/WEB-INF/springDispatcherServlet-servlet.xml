@@ -43,7 +43,7 @@
 	</mvc:annotation-driven>
 
 	<!-- 默认的注解映射的支持 -->
-	<context:component-scan base-package="com.fzb.sssp"
+	<context:component-scan base-package="com.engineer.sssp"
 		use-default-filters="false">
 		<context:include-filter type="annotation"
 			expression="org.springframework.stereotype.Controller" />
@@ -145,18 +145,18 @@
 		<!-- 多个拦截器,顺序执行 -->	
 		<mvc:interceptor>
 			<mvc:mapping path="/**" /><!-- 如果不配置或/**,将拦截所有的Controller -->	
-			<bean class="com.fzb.sssp.web.interceptors.AuthControllerInterceptor" />
+			<bean class="com.engineer.sssp.web.interceptors.AuthControllerInterceptor" />
 		</mvc:interceptor>
 		<mvc:interceptor>
 			<mvc:mapping path="/**" /><!-- 如果不配置或/**,将拦截所有的Controller -->	
 			<mvc:exclude-mapping path="/logout.action"/><!-- 指定不拦截的url	-->
-			<bean class="com.fzb.sssp.web.interceptors.BaseControllerInterceptor" />
+			<bean class="com.engineer.sssp.web.interceptors.BaseControllerInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors>
 
 	<!-- 异常拦截处理 -->
 	<bean id="exceptionResolver"
-		class="com.fzb.sssp.web.support.CustomExceptionHandlerExceptionResolver">
+		class="com.engineer.sssp.web.support.CustomExceptionHandlerExceptionResolver">
 		<property name="defaultErrorView" value="error" /><!--错误页面 -->
 		<!--标有@ResponseBody被此messageConverters输出 -->
 		<property name="messageConverters">

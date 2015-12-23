@@ -96,7 +96,7 @@
 		</layout>
 	</appender>
 
-	<logger name="com.fzb.sssp" level="DEBUG">
+	<logger name="com.engineer.sssp" level="DEBUG">
 		<appender-ref ref="sssp_error" />
 		<appender-ref ref="sssp_debug" />
 		<appender-ref ref="sssp_info" />
