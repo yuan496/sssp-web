@@ -3,12 +3,15 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"
-	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:cache="http://www.springframework.org/schema/cache"
+	xmlns:webflow="http://www.springframework.org/schema/webflow-config" xmlns:jpa="http://www.springframework.org/schema/data/jpa"
 	xsi:schemaLocation="  
             http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  
             http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
             http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
-http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+			http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd
+       		http://www.springframework.org/schema/webflow-config http://www.springframework.org/schema/webflow-config/spring-webflow-config-2.4.xsd
             http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
 	<context:property-placeholder location="classpath:db.properties" />
@@ -19,7 +22,7 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
 		<context:exclude-filter type="annotation"
 			expression="org.springframework.web.bind.annotation.ControllerAdvice" />
 	</context:component-scan>
-	
+
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 		<!-- 指定连接数据库的驱动 -->
 		<property name="driverClass" value="${jdbc.driverClassName}" />
@@ -91,18 +94,32 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
 		repository-impl-postfix="Impl" entity-manager-factory-ref="entityManagerFactory"
 		transaction-manager-ref="transactionManager">
 	</jpa:repositories>
-	
-	<import resource="cxf-server.xml"/>
+
+	<import resource="cxf-server.xml" />
 
 	<bean id="appContext" class="com.engineer.sssp.commons.AppContext" />
-	
-	<!-- 初始化加载操作 -->	
-	<bean id="initHandlerChain"  class="com.engineer.sssp.init.InitHandlerChain">
+
+	<!-- 初始化加载操作 -->
+	<bean id="initHandlerChain" class="com.engineer.sssp.init.InitHandlerChain">
 		<property name="handlers">
-			<!-- 把handler加入到chain中，注意顺序 -->  
-            <list>
-            	<ref bean="initSsspDb"/>
-            </list>  
-        </property> 
+			<!-- 把handler加入到chain中，注意顺序 -->
+			<list>
+				<ref bean="initSsspDb" />
+			</list>
+		</property>
+	</bean>
+
+	<!--启动spring cache -->
+	<cache:annotation-driven cache-manager="cacheManager" />
+	<!-- cacheManager, 指定ehcache.xml的位置 -->
+	<bean id="cacheManagerFactory"
+		class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+		<property name="configLocation" value="classpath:ehcache.xml" />
+		<!-- 由于hibernate也使用了Ehcache, 保证双方都使用同一个缓存管理器 -->
+		<property name="shared" value="true" />
+	</bean>
+	<!-- 默认是cacheManager -->
+	<bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
+		<property name="cacheManager" ref="cacheManagerFactory" />
 	</bean>
 </beans>

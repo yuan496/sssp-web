@@ -41,6 +41,8 @@
 			</bean>
 		</mvc:message-converters>
 	</mvc:annotation-driven>
+	
+	<mvc:resources mapping="static/**" location="/static/" cache-period="31536000"/>
 
 	<!-- 默认的注解映射的支持 -->
 	<context:component-scan base-package="com.engineer.sssp"
@@ -89,6 +91,12 @@
 			</props>
 		</property>
 	</bean>
+	
+	<!--图片上传-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="UTF-8"/>
+        <property name="maxUploadSize" value="20971520"/><!--bytes-->
+    </bean>
 
 	<!-- REST -->
 	<bean
