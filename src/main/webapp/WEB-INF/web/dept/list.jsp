@@ -29,6 +29,7 @@ body {
 </head>
 <body>
 	<h3>Department</h3>
+	<a href="${pageContext.request.contextPath }/dept/dept">add</a>
 	<c:if test="${page != null && page.numberOfElements > 0}">
 		<table class="data">
 			<tr>

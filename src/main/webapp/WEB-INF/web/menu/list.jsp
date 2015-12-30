@@ -29,6 +29,7 @@ body {
 </head>
 <body>
 	<h3>Menu</h3>
+	<a href="${pageContext.request.contextPath }/menu/menu">add</a>
 	<c:if test="${page != null && page.numberOfElements > 0}">
 		<table class="data">
 			<tr>
