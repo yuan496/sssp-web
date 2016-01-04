@@ -2,10 +2,10 @@ package com.engineer.sssp.utils;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -68,8 +68,11 @@ public class SaxXmlUtils extends DefaultHandler {
 	private Object parseObject(String className, Map<String, String> fieldMap) throws Exception {
 		Class clazz = Class.forName(className);
 		Object object = clazz.newInstance();
-		Field[] fields = getDeclaredFieldsIncludeInherit(clazz);
+		Field[] fields = ReflectUtils.getDeclaredFieldsIncludeInherit(clazz);
 		for (Field field : fields) {
+			if (field.getModifiers() == Modifier.STATIC) {//排除静态变量
+				continue;
+			}
 			String fieldName = field.getName();
 			if (fieldMap.containsKey(fieldName)) {
 				// 获取字段的set方法
@@ -171,31 +174,5 @@ public class SaxXmlUtils extends DefaultHandler {
 		return list;
 	}
 	
-	/**
-	 * 获取包含父类的所有字段.
-	 * <p>
-	 * 获取包含父类的所有字段
-	 * <p>
-	 * <code>{样例代码， 小于号大于号转义&lt; &gt;}</code>
-	 * @author fangzhibin 2015年12月18日 上午9:06:22
-	 * @param clazz
-	 * @return
-	 * @modify {上次修改原因} by fangzhibin 2015年12月18日 上午9:06:22
-	 */
-	@SuppressWarnings("rawtypes")
-	private static Field[] getDeclaredFieldsIncludeInherit(Class clazz) {
-		if (null == clazz) {
-			return new Field[0];
-		}
-		Class c = clazz;
-		List<Field> fds = new ArrayList<Field>();
-		while (null != c) {
-			Field[] fields = c.getDeclaredFields();
-			if (null != fields) {
-				fds.addAll(Arrays.asList(fields));
-			}
-			c = c.getSuperclass();
-		}
-		return fds.toArray(new Field[fds.size()]);
-	}
+	
 }
