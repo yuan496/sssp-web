@@ -3,7 +3,6 @@ package com.engineer.sssp.utils;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
-
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,14 +14,14 @@ import javax.servlet.http.HttpServletResponse;
  * @createDate 2016年1月19日 上午12:01:02
  */
 public class CookieUtils {
-
+	
 	/**
 	 * 设置 Cookie（生成时间为1天）
 	 * @param name 名称
 	 * @param value 值
 	 */
 	public static void setCookie(HttpServletResponse response, String name, String value) {
-		setCookie(response, name, value, 60*60*24);
+		setCookie(response, name, value, 60 * 60 * 24);
 	}
 	
 	/**
@@ -33,7 +32,7 @@ public class CookieUtils {
 	 * @param uri 路径
 	 */
 	public static void setCookie(HttpServletResponse response, String name, String value, String path) {
-		setCookie(response, name, value, path, 60*60*24);
+		setCookie(response, name, value, path, 60 * 60 * 24);
 	}
 	
 	/**
@@ -74,6 +73,7 @@ public class CookieUtils {
 	public static String getCookie(HttpServletRequest request, String name) {
 		return getCookie(request, null, name, false);
 	}
+	
 	/**
 	 * 获得指定Cookie的值，并删除。
 	 * @param name 名称
@@ -82,6 +82,7 @@ public class CookieUtils {
 	public static String getCookie(HttpServletRequest request, HttpServletResponse response, String name) {
 		return getCookie(request, response, name, true);
 	}
+	
 	/**
 	 * 获得指定Cookie的值
 	 * @param request 请求对象

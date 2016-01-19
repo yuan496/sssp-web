@@ -17,13 +17,13 @@ import org.springframework.core.io.ResourceLoader;
  * @since 版本号，从什么版本开始
  * @createDate 2016年1月19日 上午12:06:11
  */
-public class PropertiesLoader {
+public class PropertiesUtils {
 	
-	private static Logger logger = LoggerFactory.getLogger(PropertiesLoader.class);
+	private static Logger logger = LoggerFactory.getLogger(PropertiesUtils.class);
 	private static ResourceLoader resourceLoader = new DefaultResourceLoader();
 	private final Properties properties;
 	
-	public PropertiesLoader(String... resourcesPaths) {
+	public PropertiesUtils(String... resourcesPaths) {
 		properties = loadProperties(resourcesPaths);
 	}
 	

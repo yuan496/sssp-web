@@ -14,9 +14,8 @@ import net.sf.ehcache.Element;
 public class CacheUtils {
 	
 	private static CacheManager cacheManager = ((CacheManager)AppContext.getBean("cacheManager"));
-
 	private static final String SYS_CACHE = "sysCache";
-
+	
 	/**
 	 * 获取SYS_CACHE缓存
 	 * @param key
@@ -52,9 +51,9 @@ public class CacheUtils {
 	 */
 	public static Object get(String cacheName, String key) {
 		Element element = getCache(cacheName).get(key);
-		return element==null?null:element.getObjectValue();
+		return element == null?null:element.getObjectValue();
 	}
-
+	
 	/**
 	 * 写入缓存
 	 * @param cacheName
@@ -65,7 +64,7 @@ public class CacheUtils {
 		Element element = new Element(key, value);
 		getCache(cacheName).put(element);
 	}
-
+	
 	/**
 	 * 从缓存中移除
 	 * @param cacheName
@@ -80,18 +79,17 @@ public class CacheUtils {
 	 * @param cacheName
 	 * @return
 	 */
-	private static Cache getCache(String cacheName){
+	private static Cache getCache(String cacheName) {
 		Cache cache = cacheManager.getCache(cacheName);
-		if (cache == null){
+		if (cache == null) {
 			cacheManager.addCache(cacheName);
 			cache = cacheManager.getCache(cacheName);
 			cache.getCacheConfiguration().setEternal(true);
 		}
 		return cache;
 	}
-
+	
 	public static CacheManager getCacheManager() {
 		return cacheManager;
 	}
-	
 }
