@@ -50,5 +50,9 @@ public interface UserService {
      */
 	@GET
 	@Path("/get/{code}")
-    public List<User> findByCode(String code);
+    public List<User> findByCode(@PathParam("code") String code);
+	
+	@GET
+	@Path("/findByUserNameAndPassword/{name}/{password}")
+	public User findByUserNameAndPassword(@PathParam("name") String name, @PathParam("password") String password);
 }

@@ -113,4 +113,21 @@ public class UserServiceImpl implements UserService {
     public List<User> findByCode(String code) {
         return userRepository.findByCode(code);
     }
+    
+    /**
+     * {简述，保留点号}.
+     * <p>
+     * {详述}
+     * <p>
+     * <code>{样例代码， 小于号大于号转义&lt; &gt;}</code>
+     * @author fangzhibin 2016年1月24日 下午4:25:43
+     * @param name
+     * @param password
+     * @return
+     * @modify {上次修改原因} by fangzhibin 2016年1月24日 下午4:25:43
+     */
+    @Override
+    public User findByUserNameAndPassword(String userName, String password) {
+        return userRepository.findByUserNameAndPassword(userName, password);
+    }
 }

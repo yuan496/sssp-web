@@ -6,6 +6,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+import com.engineer.sssp.commons.AppContext;
+import com.engineer.sssp.commons.constants.EngineerConstant;
+import com.engineer.sssp.entity.User;
+import com.engineer.sssp.service.UserService;
 
 /**
  * 权限拦截器
@@ -16,6 +20,8 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 public class AuthControllerInterceptor extends HandlerInterceptorAdapter {
 	
 	private static final Logger log = LoggerFactory.getLogger(AuthControllerInterceptor.class);
+	
+	private UserService userService = AppContext.getBean("userService");
 	
 	/**
 	 * 在Controller方法后进行拦截 当有拦截器抛出异常时,会从当前拦截器往回执行所有拦截器的afterCompletion方法
@@ -38,6 +44,17 @@ public class AuthControllerInterceptor extends HandlerInterceptorAdapter {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 		log.debug("=======auth preHandle=========");
-		return true;
+		String userName = request.getParameter("userName");
+		String password = request.getParameter("password");
+		User user = userService.findByUserNameAndPassword(userName, password);
+		if(null != user) {
+			request.getSession().setAttribute("user", user);
+			if(user.getCode().endsWith(EngineerConstant.ADMIN_CODE)) {
+				return true;
+			} else {
+				//查询不是admin的权限
+			}
+		}
+		return false;
 	}
 }

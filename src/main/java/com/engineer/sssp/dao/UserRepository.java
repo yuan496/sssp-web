@@ -14,4 +14,6 @@ import com.engineer.sssp.entity.User;
 public interface UserRepository extends JpaRepository<User, Long>, JpaSpecificationExecutor<User> {
 	
 	List<User> findByCode(String code);
+	
+	User findByUserNameAndPassword(String userName, String password);
 }
